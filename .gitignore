@@ -1,0 +1,25 @@
+# Compiler binaries
+tools/mwcc_compiler/
+
+# Build artifacts
+*.dol
+*.rel
+*.elf
+*.plf
+*.o
+*.dep
+*.map
+
+# Tool binaries
+tools/elf2dol
+tools/elf2rel
+tools/lzss
+*.exe
+
+# Temporary files
+*.sw*
+*.dump
+__pycache__
+*.bat
+errors.txt
+output.asm

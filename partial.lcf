@@ -1,0 +1,18 @@
+/* Linker configuration for building a relocatable (.rel) module */
+
+SECTIONS
+{
+    GROUP :
+    {
+        .init   :{}
+        .text   :{}
+        .rodata :{}
+        .data   :{}
+        .bss    :{}
+    }
+}
+
+FORCEACTIVE
+{
+    _prolog
+}
