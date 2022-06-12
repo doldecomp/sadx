@@ -2295,11 +2295,3 @@ lbl_80079C28:
 
 	# ROM: 0x76C28
 	.asciz "AX SDLIB: allocated (%d)\n"
-	.balign 4
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0

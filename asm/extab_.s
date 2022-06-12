@@ -145,4 +145,3 @@ lbl_800057B4:
 	# ROM: 0x733B4
 	.4byte 0x00080000
 	.4byte 0
-	.4byte 0

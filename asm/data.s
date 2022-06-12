@@ -11655,8 +11655,3 @@ lbl_80085AF4:
 
 	# ROM: 0x82AF4
 	.asciz "GBA - unexpected dsp call"
-	.balign 4
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0

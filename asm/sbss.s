@@ -1329,4 +1329,4 @@ lbl_800C4664:
 
 .global lbl_800C4668
 lbl_800C4668:
-	.skip 0x18
+	.skip 0x4

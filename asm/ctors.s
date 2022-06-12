@@ -9,9 +9,3 @@ lbl_800764A0:
 	# ROM: 0x734A0
 	.4byte lbl_80007368
 	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0

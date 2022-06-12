@@ -538,7 +538,4 @@ lbl_800C406C:
 lbl_800C4070:
 
 	# ROM: 0x82D30
-	.4byte 0x80000000
-	.4byte 0
-	.4byte 0
-	.4byte 0
+	.byte 0x80
