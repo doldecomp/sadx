@@ -16,7 +16,7 @@ lbl_800057C0:
 	.4byte lbl_80006738
 	.4byte 0x000000F8
 	.4byte lbl_800056F0
-	.4byte lbl_80006830
+	.4byte __dt__26__partial_array_destructorFv
 	.4byte 0x000000B8
 	.4byte lbl_80005708
 	.4byte lbl_800068E8
@@ -31,7 +31,7 @@ lbl_800057C0:
 	.4byte lbl_80006C64
 	.4byte 0x00000028
 	.4byte lbl_80005738
-	.4byte lbl_80006C8C
+	.4byte sqrt
 	.4byte 0x00000020
 	.4byte lbl_80005740
 	.4byte func_800075F0

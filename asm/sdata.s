@@ -14,7 +14,7 @@ lbl_800C3E60:
 lbl_800C3E68:
 
 	# ROM: 0x82B28
-	.4byte lbl_80006C8C
+	.4byte sqrt
 
 .global lbl_800C3E6C
 lbl_800C3E6C:

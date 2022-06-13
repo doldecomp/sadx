@@ -7,7 +7,7 @@
 lbl_800764C0:
 
 	# ROM: 0x734C0
-	.4byte func_80006638
-	.4byte lbl_80007334
-	.4byte func_80006638
+	.4byte __destroy_global_chain
+	.4byte __fini_cpp_exceptions
+	.4byte __destroy_global_chain
 	.4byte 0

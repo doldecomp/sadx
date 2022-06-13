@@ -159,7 +159,7 @@ lbl_80079F48:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte lbl_8001B0E4
+	.4byte __read_console
 	.4byte lbl_80010AD8
 	.4byte lbl_80010AD0
 	.4byte 0
@@ -184,7 +184,7 @@ lbl_80079F98:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte lbl_8001B0E4
+	.4byte __read_console
 	.4byte lbl_80010AD8
 	.4byte lbl_80010AD0
 	.4byte 0
@@ -209,7 +209,7 @@ lbl_80079FE8:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte lbl_8001B0E4
+	.4byte __read_console
 	.4byte lbl_80010AD8
 	.4byte lbl_80010AD0
 	.4byte 0
@@ -5272,7 +5272,7 @@ lbl_8007ED90:
 lbl_8007EDD8:
 
 	# ROM: 0x7BDD8
-	.4byte lbl_80023FCC
+	.4byte OnReset_1
 	.4byte 0x0000007F
 	.4byte 0
 	.4byte 0
@@ -5696,7 +5696,7 @@ lbl_8007F73C:
 lbl_8007F758:
 
 	# ROM: 0x7C758
-	.4byte lbl_80030CA0
+	.4byte __GXShutdown
 	.4byte 0x0000007F
 	.4byte 0
 	.4byte 0
@@ -7983,7 +7983,7 @@ lbl_80082208:
 lbl_80082230:
 
 	# ROM: 0x7F230
-	.4byte lbl_8003FF64
+	.4byte OnReset_2
 	.4byte 0x0000007F
 	.4byte 0
 	.4byte 0
@@ -11395,7 +11395,7 @@ lbl_800850C8:
 lbl_80085728:
 
 	# ROM: 0x82728
-	.4byte lbl_80074BD0
+	.4byte OnReset_3
 	.4byte 0x0000007F
 	.4byte 0
 	.4byte 0

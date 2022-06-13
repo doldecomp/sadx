@@ -7,5 +7,5 @@
 lbl_800764A0:
 
 	# ROM: 0x734A0
-	.4byte lbl_80007368
+	.4byte __init_cpp_exceptions
 	.4byte 0
