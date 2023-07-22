@@ -9,6 +9,7 @@ tools/mwcc_compiler/
 *.o
 *.dep
 *.map
+build/
 
 # Tool binaries
 tools/elf2dol

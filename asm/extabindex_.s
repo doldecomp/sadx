@@ -10,10 +10,10 @@ lbl_800057C0:
 	.4byte func_80006698
 	.4byte 0x0000004C
 	.4byte lbl_800056C0
-	.4byte lbl_800066E4
+	.4byte func_800066E4
 	.4byte 0x00000048
 	.4byte lbl_800056E8
-	.4byte lbl_80006738
+	.4byte __construct_array
 	.4byte 0x000000F8
 	.4byte lbl_800056F0
 	.4byte __dt__26__partial_array_destructorFv
@@ -56,12 +56,12 @@ lbl_800057C0:
 	.4byte 0x00000204
 	.4byte lbl_800057B4
 
-.global lbl_80005880
-lbl_80005880:
+.global lbl_800058A0
+lbl_800058A0:
 
 	# ROM: 0x73480
 	.4byte lbl_800057C0
-	.4byte lbl_80005880
+	.4byte lbl_800058A0
 	.4byte func_80006698
 	.4byte 0x000020D4
 	.4byte 0

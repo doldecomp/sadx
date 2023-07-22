@@ -3,85 +3,42 @@
 .section .sbss, "", @nobits  # 0x800C4080 - 0x800C4680 ; 0x00000600
 
 
-.global lbl_800C4080
-lbl_800C4080:
+.balign 8
+
+.global __aborting
+__aborting:
 	.skip 0x4
 
-.global lbl_800C4084
-lbl_800C4084:
+.global __atexit_curr_func
+__atexit_curr_func:
 	.skip 0x4
 
-.global lbl_800C4088
-lbl_800C4088:
+.global __stdio_exit
+__stdio_exit:
 	.skip 0x4
 
-.global lbl_800C408C
-lbl_800C408C:
-	.skip 0x4
-
-.global lbl_800C4090
-lbl_800C4090:
-	.skip 0x4
-
-.global lbl_800C4094
-lbl_800C4094:
-	.skip 0x4
-
-.global lbl_800C4098
-lbl_800C4098:
-	.skip 0x4
-
-.global lbl_800C409C
-lbl_800C409C:
-	.skip 0x4
-
-.global lbl_800C40A0
-lbl_800C40A0:
-	.skip 0x4
-
-.global lbl_800C40A4
-lbl_800C40A4:
-	.skip 0x4
-
-.global lbl_800C40A8
-lbl_800C40A8:
-	.skip 0x8
-
-.global lbl_800C40B0
-lbl_800C40B0:
-	.skip 0x8
-
-.global lbl_800C40B8
-lbl_800C40B8:
-	.skip 0x8
-
-.global lbl_800C40C0
-lbl_800C40C0:
-	.skip 0x4
-
-.global lbl_800C40C4
-lbl_800C40C4:
-	.skip 0x4
-
-.global lbl_800C40C8
-lbl_800C40C8:
-	.skip 0x4
-
-.global lbl_800C40CC
-lbl_800C40CC:
+.global __console_exit
+__console_exit:
 	.skip 0x4
 
 .global lbl_800C40D0
 lbl_800C40D0:
-	.skip 0x8
+	.skip 0x1
+	.balign 8
+	
+	# split
 
 .global lbl_800C40D8
 lbl_800C40D8:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
 
 .global lbl_800C40E0
 lbl_800C40E0:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C40E8
 lbl_800C40E8:
@@ -229,7 +186,10 @@ lbl_800C417C:
 
 .global lbl_800C4180
 lbl_800C4180:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C4188
 lbl_800C4188:
@@ -281,7 +241,10 @@ lbl_800C41B4:
 
 .global lbl_800C41B8
 lbl_800C41B8:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C41C0
 lbl_800C41C0:
@@ -301,7 +264,10 @@ lbl_800C41CC:
 
 .global lbl_800C41D0
 lbl_800C41D0:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C41D8
 lbl_800C41D8:
@@ -385,7 +351,10 @@ lbl_800C422C:
 
 .global lbl_800C4230
 lbl_800C4230:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C4238
 lbl_800C4238:
@@ -405,19 +374,25 @@ lbl_800C4244:
 
 .global lbl_800C4248
 lbl_800C4248:
-	.skip 0x8
+	.skip 0x2
+	.balign 8
+	
+	# split
 
-.global lbl_800C4250
-lbl_800C4250:
+.global __DBInterface
+__DBInterface:
 	.skip 0x4
 
-.global lbl_800C4254
-lbl_800C4254:
+.global DBVerbose
+DBVerbose:
 	.skip 0x4
 
 .global lbl_800C4258
 lbl_800C4258:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C4260
 lbl_800C4260:
@@ -443,14 +418,15 @@ lbl_800C4270:
 lbl_800C4274:
 	.skip 0x4
 
-.global lbl_800C4278
-lbl_800C4278:
+.global StopAtNextInt
+StopAtNextInt:
 	.skip 0x4
 
 .global lbl_800C427C
 lbl_800C427C:
 	.skip 0x4
 
+# Callback
 .global lbl_800C4280
 lbl_800C4280:
 	.skip 0x4
@@ -459,33 +435,34 @@ lbl_800C4280:
 lbl_800C4284:
 	.skip 0x4
 
-.global lbl_800C4288
-lbl_800C4288:
+.global LastResetEnd
+LastResetEnd:
 	.skip 0x4
 
 .global lbl_800C428C
 lbl_800C428C:
 	.skip 0x4
 
-.global lbl_800C4290
-lbl_800C4290:
+.global ResetOccurred
+ResetOccurred:
 	.skip 0x4
 
-.global lbl_800C4294
-lbl_800C4294:
+.global WaitingCoverClose
+WaitingCoverClose:
 	.skip 0x4
 
 .global lbl_800C4298
 lbl_800C4298:
 	.skip 0x4
 
-.global lbl_800C429C
-lbl_800C429C:
+.global WorkAroundType
+WorkAroundType:
 	.skip 0x4
 
-.global lbl_800C42A0
-lbl_800C42A0:
-	.skip 0x8
+.global WorkAroundSeekLocation
+WorkAroundSeekLocation:
+	.skip 0x4
+	.balign 8
 
 .global lbl_800C42A8
 lbl_800C42A8:
@@ -507,68 +484,68 @@ lbl_800C42B4:
 lbl_800C42B8:
 	.skip 0x4
 
-.global lbl_800C42BC
-lbl_800C42BC:
+.global NextCommandNumber
+NextCommandNumber:
 	.skip 0x4
 
-.global lbl_800C42C0
-lbl_800C42C0:
+.global BootInfo
+BootInfo:
 	.skip 0x4
 
-.global lbl_800C42C4
-lbl_800C42C4:
+.global FstStart
+FstStart:
 	.skip 0x4
 
-.global lbl_800C42C8
-lbl_800C42C8:
+.global FstStringStart
+FstStringStart:
 	.skip 0x4
 
-.global lbl_800C42CC
-lbl_800C42CC:
+.global MaxEntryNum
+MaxEntryNum:
 	.skip 0x4
 
 .global lbl_800C42D0
 lbl_800C42D0:
 	.skip 0x4
 
-.global lbl_800C42D4
-lbl_800C42D4:
+.global __DVDLongFileNameFlag
+__DVDLongFileNameFlag:
 	.skip 0x4
 
-.global lbl_800C42D8
-lbl_800C42D8:
+.global __DVDThreadQueue
+__DVDThreadQueue:
 	.skip 0x8
 
-.global lbl_800C42E0
-lbl_800C42E0:
+.global executing
+executing:
 	.skip 0x4
 
-.global lbl_800C42E4
-lbl_800C42E4:
+.global IDShouldBe
+IDShouldBe:
 	.skip 0x4
 
-.global lbl_800C42E8
-lbl_800C42E8:
+.global bootInfo
+bootInfo:
 	.skip 0x4
 
-.global lbl_800C42EC
-lbl_800C42EC:
+.global PauseFlag
+PauseFlag:
 	.skip 0x4
 
-.global lbl_800C42F0
-lbl_800C42F0:
+.global PausingFlag
+PausingFlag:
 	.skip 0x4
 
 .global lbl_800C42F4
 lbl_800C42F4:
 	.skip 0x4
 
-.global lbl_800C42F8
-lbl_800C42F8:
+.global FatalErrorFlag
+FatalErrorFlag:
 	.skip 0x4
 
-.global lbl_800C42FC
-lbl_800C42FC:
+.global CurrCommand
+CurrCommand:
 	.skip 0x4
 
 .global lbl_800C4300
@@ -579,12 +556,12 @@ lbl_800C4300:
 lbl_800C4304:
 	.skip 0x4
 
-.global lbl_800C4308
-lbl_800C4308:
+.global ResumeFromHere
+ResumeFromHere:
 	.skip 0x4
 
-.global lbl_800C430C
-lbl_800C430C:
+.global CancelLastError
+CancelLastError:
 	.skip 0x4
 
 .global lbl_800C4310
@@ -595,16 +572,16 @@ lbl_800C4310:
 lbl_800C4314:
 	.skip 0x4
 
-.global lbl_800C4318
-lbl_800C4318:
+.global ResetRequired
+ResetRequired:
 	.skip 0x4
 
-.global lbl_800C431C
-lbl_800C431C:
+.global FirstTimeInBootrom
+FirstTimeInBootrom:
 	.skip 0x4
 
-.global lbl_800C4320
-lbl_800C4320:
+.global DVDInitialized
+DVDInitialized:
 	.skip 0x4
 
 .global lbl_800C4324
@@ -613,23 +590,32 @@ lbl_800C4324:
 
 .global lbl_800C4328
 lbl_800C4328:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C4330
 lbl_800C4330:
 	.skip 0x4
 
-.global lbl_800C4334
-lbl_800C4334:
+.global bb2
+bb2:
 	.skip 0x4
 
-.global lbl_800C4338
-lbl_800C4338:
-	.skip 0x8
+.global idTmp
+idTmp:
+	.skip 0x4
+	.balign 8
+	
+	# split
 
-.global lbl_800C4340
-lbl_800C4340:
-	.skip 0x8
+.global IDSerialPort1
+IDSerialPort1:
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C4348
 lbl_800C4348:
@@ -709,7 +695,10 @@ lbl_800C4394:
 
 .global lbl_800C4398
 lbl_800C4398:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C43A0
 lbl_800C43A0:
@@ -721,7 +710,8 @@ lbl_800C43A4:
 
 .global lbl_800C43A8
 lbl_800C43A8:
-	.skip 0x4
+	.skip 0x1
+	.balign 4
 
 .global lbl_800C43AC
 lbl_800C43AC:
@@ -739,60 +729,64 @@ lbl_800C43BC:
 lbl_800C43C0:
 	.skip 0x8
 
+# BootInfo
 .global lbl_800C43C8
 lbl_800C43C8:
 	.skip 0x4
 
-.global lbl_800C43CC
-lbl_800C43CC:
+.global BI2DebugFlag
+BI2DebugFlag:
 	.skip 0x4
 
-.global lbl_800C43D0
-lbl_800C43D0:
+.global BI2DebugFlagHolder
+BI2DebugFlagHolder:
 	.skip 0x4
 
-.global lbl_800C43D4
-lbl_800C43D4:
+.global __OSIsGcam
+__OSIsGcam:
 	.skip 0x4
 
-.global lbl_800C43D8
-lbl_800C43D8:
+.global ZeroF
+ZeroF:
 	.skip 0x8
 
-.global lbl_800C43E0
-lbl_800C43E0:
+.global ZeroPS
+ZeroPS:
 	.skip 0x8
 
-.global lbl_800C43E8
-lbl_800C43E8:
+.global AreWeInitialized
+AreWeInitialized:
 	.skip 0x4
 
-.global lbl_800C43EC
-lbl_800C43EC:
+.global OSExceptionTable
+OSExceptionTable:
 	.skip 0x4
 
-.global lbl_800C43F0
-lbl_800C43F0:
+.global __OSSavedRegionEnd
+__OSSavedRegionEnd:
 	.skip 0x4
 
-.global lbl_800C43F4
-lbl_800C43F4:
+.global __OSSavedRegionStart
+__OSSavedRegionStart:
 	.skip 0x4
 
-.global lbl_800C43F8
-lbl_800C43F8:
-	.skip 0x8
+.global __OSInIPL
+__OSInIPL:
+	.skip 0x4
+	.balign 8
+	
+	# split
 
-.global lbl_800C4400
-lbl_800C4400:
+.global __OSStartTime
+__OSStartTime:
 	.skip 0x4
 
 .global lbl_800C4404
 lbl_800C4404:
 	.skip 0x4
 
-.global lbl_800C4408
-lbl_800C4408:
+.global AlarmQueue
+AlarmQueue:
 	.skip 0x8
 
 .global lbl_800C4410
@@ -811,9 +805,12 @@ lbl_800C4418:
 lbl_800C441C:
 	.skip 0x4
 
-.global lbl_800C4420
-lbl_800C4420:
-	.skip 0x8
+.global __OSArenaHi
+__OSArenaHi:
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C4428
 lbl_800C4428:
@@ -831,20 +828,23 @@ lbl_800C4430:
 lbl_800C4434:
 	.skip 0x4
 
-.global lbl_800C4438
-lbl_800C4438:
+.global InterruptHandlerTable
+InterruptHandlerTable:
 	.skip 0x4
 
-.global lbl_800C443C
-lbl_800C443C:
+.global __OSLastInterruptSrr0
+__OSLastInterruptSrr0:
 	.skip 0x4
 
-.global lbl_800C4440
-lbl_800C4440:
-	.skip 0x8
+.global __OSLastInterrupt
+__OSLastInterrupt:
+	.skip 0x2
+	.balign 8
+	
+	# split
 
-.global lbl_800C4448
-lbl_800C4448:
+.global __OSLastInterruptTime
+__OSLastInterruptTime:
 	.skip 0x4
 
 .global lbl_800C444C
@@ -861,10 +861,13 @@ lbl_800C4454:
 
 .global lbl_800C4458
 lbl_800C4458:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
-.global lbl_800C4460
-lbl_800C4460:
+.global ResetFunctionQueue
+ResetFunctionQueue:
 	.skip 0x8
 
 .global lbl_800C4468
@@ -895,17 +898,26 @@ lbl_800C4480:
 lbl_800C4484:
 	.skip 0x4
 
-.global lbl_800C4488
-lbl_800C4488:
+.global RunQueueBits
+RunQueueBits:
 	.skip 0x4
 
-.global lbl_800C448C
-lbl_800C448C:
+.global RunQueueHint
+RunQueueHint:
 	.skip 0x4
 
-.global lbl_800C4490
-lbl_800C4490:
-	.skip 0x10
+.global Reschedule
+Reschedule:
+	.skip 0x4
+	.balign 8
+	
+	# split
+
+Debug_BBA:
+	.skip 0x1
+	.balign 8
+	
+	# split
 
 .global lbl_800C44A0
 lbl_800C44A0:
@@ -943,25 +955,31 @@ lbl_800C44BC:
 lbl_800C44C0:
 	.skip 0x4
 
-.global lbl_800C44C4
-lbl_800C44C4:
+.global __PADSpec
+__PADSpec:
 	.skip 0x4
 
 .global lbl_800C44C8
 lbl_800C44C8:
 	.skip 0x4
 
-.global lbl_800C44CC
-lbl_800C44CC:
+.global "cmdTypeAndStatus$371"
+"cmdTypeAndStatus$371":
 	.skip 0x4
 
 .global lbl_800C44D0
 lbl_800C44D0:
-	.skip 0x8
+	.skip 0x4
+	.balign 8
+	
+	# split
 
-.global lbl_800C44D8
-lbl_800C44D8:
-	.skip 0x8
+.global SamplingRate
+SamplingRate:
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_800C44E0
 lbl_800C44E0:
@@ -1027,8 +1045,8 @@ lbl_800C451C:
 lbl_800C4520:
 	.skip 0x4
 
-.global lbl_800C4524
-lbl_800C4524:
+.global CurrTvMode
+CurrTvMode:
 	.skip 0x4
 
 .global lbl_800C4528
@@ -1229,7 +1247,10 @@ lbl_800C45FC:
 
 .global lbl_800C4600
 lbl_800C4600:
-	.skip 0x8
+	.skip 0x1
+	.balign 8
+	
+	# split
 
 .global lbl_800C4608
 lbl_800C4608:
@@ -1253,7 +1274,10 @@ lbl_800C4618:
 
 .global lbl_800C461C
 lbl_800C461C:
-	.skip 0x4
+	.skip 0x2
+	.balign 8
+	
+	# split
 
 .global lbl_800C4620
 lbl_800C4620:
@@ -1317,7 +1341,10 @@ lbl_800C4658:
 
 .global lbl_800C465C
 lbl_800C465C:
-	.skip 0x4
+	.skip 0x1
+	.balign 8
+	
+	# split
 
 .global lbl_800C4660
 lbl_800C4660:

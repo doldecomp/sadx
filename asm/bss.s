@@ -3,16 +3,8 @@
 .section .bss, "", @nobits  # 0x80085B20 - 0x800C3E60 ; 0x0003E340
 
 
-.global lbl_80085B20
-lbl_80085B20:
-	.skip 0xB90
-
-.global lbl_800866B0
-lbl_800866B0:
-	.skip 0x10
-
-.global lbl_800866C0
-lbl_800866C0:
+.global __atexit_funcs
+__atexit_funcs:
 	.skip 0x100
 
 .global lbl_800867C0
@@ -39,16 +31,19 @@ lbl_80086AF8:
 lbl_80086B10:
 	.skip 0x28
 
-.global lbl_80086B38
-lbl_80086B38:
-	.skip 0x8
+.global gTRKBigEndian
+gTRKBigEndian:
+	.skip 0x4
+
+lbl_80086B3C:
+	.skip 0x4
 
 .global lbl_80086B40
 lbl_80086B40:
 	.skip 0x19B0
 
-.global lbl_800884F0
-lbl_800884F0:
+.global gTRKInputPendingPtr
+gTRKInputPendingPtr:
 	.skip 0x4
 
 .global lbl_800884F4
@@ -63,20 +58,21 @@ lbl_80088508:
 lbl_80088510:
 	.skip 0x8
 
-.global lbl_80088518
-lbl_80088518:
-	.skip 0x4
+.global TRK_saved_exceptionID
+TRK_saved_exceptionID:
+	.skip 0x2
+	.balign 4
 
-.global lbl_8008851C
-lbl_8008851C:
+.global gTRKState
+gTRKState:
 	.skip 0xA4
 
-.global lbl_800885C0
-lbl_800885C0:
+.global gTRKCPUState
+gTRKCPUState:
 	.skip 0x430
 
-.global lbl_800889F0
-lbl_800889F0:
+.global gTRKSaveState
+gTRKSaveState:
 	.skip 0x94
 
 .global lbl_80088A84
@@ -87,9 +83,12 @@ lbl_80088A84:
 lbl_80088A98:
 	.skip 0x8
 
-.global lbl_80088AA0
-lbl_80088AA0:
-	.skip 0x8
+.global TRK_mainError
+TRK_mainError:
+	.skip 0x4
+	.balign 8
+	
+	# split
 
 .global lbl_80088AA8
 lbl_80088AA8:
@@ -195,40 +194,50 @@ lbl_800A3D40:
 lbl_800A3F60:
 	.skip 0x20
 
-.global lbl_800A3F80
-lbl_800A3F80:
-	.skip 0x68
+.global CommandList
+CommandList:
+	.skip 0x3C
 
-.global lbl_800A3FE8
-lbl_800A3FE8:
-	.skip 0x78
+lbl_800A3FBC:
+	.skip 0x2C
 
-.global lbl_800A4060
-lbl_800A4060:
+.global AlarmForTimeout
+AlarmForTimeout:
+	.skip 0x28
+
+lbl_800A4010:
+	.skip 0x50
+
+.global BB2
+BB2:
 	.skip 0x20
 
 .global lbl_800A4080
 lbl_800A4080:
 	.skip 0x20
 
-.global lbl_800A40A0
-lbl_800A40A0:
-	.skip 0x58
-
-.global lbl_800A40F8
-lbl_800A40F8:
-	.skip 0x20
-
-.global lbl_800A4118
-lbl_800A4118:
-	.skip 0x40
-
-.global lbl_800A4158
-lbl_800A4158:
+.global DummyCommandBlock
+DummyCommandBlock:
 	.skip 0x30
 
-.global lbl_800A4188
-lbl_800A4188:
+lbl_800A40D0:
+	.skip 0x28
+
+.global WaitingQueue
+WaitingQueue:
+	.skip 0x20
+
+.global bb2Buf
+bb2Buf:
+	.skip 0x3F
+	.balign 8
+
+.global "block$16"
+"block$16":
+	.skip 0x30
+
+.global Ecb
+Ecb:
 	.skip 0xC0
 
 .global lbl_800A4248
@@ -239,25 +248,35 @@ lbl_800A4248:
 lbl_800A47C0:
 	.skip 0x1800
 
-.global lbl_800A5FC0
-lbl_800A5FC0:
-	.skip 0x50
+.global DriveInfo
+DriveInfo:
+	.skip 0x20
 
-.global lbl_800A6010
-lbl_800A6010:
-	.skip 0x50
+lbl_800A5FE0:
+	.skip 0x30
+
+.global __OSErrorTable
+__OSErrorTable:
+	.skip 0x44
+
+lbl_800A6054:
+	.skip 0xC
 
 .global lbl_800A6060
 lbl_800A6060:
 	.skip 0x20
 
-.global lbl_800A6080
-lbl_800A6080:
-	.skip 0x58
+.global Scb
+Scb:
+	.skip 0x54
+	.balign 8
 
-.global lbl_800A60D8
-lbl_800A60D8:
-	.skip 0x9F8
+.global RunQueue
+RunQueue:
+	.skip 0x100
+
+lbl_800A61D8:
+	.skip 0x8F8
 
 .global lbl_800A6AD0
 lbl_800A6AD0:
@@ -267,16 +286,16 @@ lbl_800A6AD0:
 lbl_800A6AE0:
 	.skip 0x40
 
-.global lbl_800A6B20
-lbl_800A6B20:
+.global Packet
+Packet:
 	.skip 0x80
 
 .global lbl_800A6BA0
 lbl_800A6BA0:
 	.skip 0xA0
 
-.global lbl_800A6C40
-lbl_800A6C40:
+.global TypeTime
+TypeTime:
 	.skip 0x20
 
 .global lbl_800A6C60

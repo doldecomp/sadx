@@ -3,145 +3,8 @@
 .section .data, "wa"  # 0x80079C60 - 0x80085B20 ; 0x0000BEC0
 
 
-.global lbl_80079C60
-lbl_80079C60:
-
-	# ROM: 0x76C60
-	.asciz "SonicAdv.str"
-	.balign 4
-
-.global lbl_80079C70
-lbl_80079C70:
-
-	# ROM: 0x76C70
-	.asciz "_Main.rel"
-	.balign 4
-	.asciz "The Disc Cover is open.\nIf you want to continue the game,\nplease close the Disc Cover."
-	.balign 4
-	.asciz "Please insert the\nSonic Adventure DX Game Disc."
-	.asciz "The Game Disc could not be read.\nPlease read the Nintendo GameCube\nInstruction Booklet for more information."
-	.balign 4
-	.asciz "An error has occurred.\nTurn the power off\nand refer to the Nintendo GameCube\nInstruction Booklet for more information."
-	.balign 4
-	.asciz "Now Loading."
-	.balign 4
-	.asciz "Now Loading.."
-	.balign 4
-	.asciz "Now Loading..."
-	.balign 4
-
-.global lbl_80079E1C
-lbl_80079E1C:
-
-	# ROM: 0x76E1C
-	.4byte lbl_80005EBC
-	.4byte lbl_80005ED0
-	.4byte lbl_80005ED0
-	.4byte lbl_80005ED0
-	.4byte lbl_80005ED0
-	.4byte lbl_80005E94
-	.4byte lbl_80005E80
-	.4byte lbl_80005E94
-	.4byte lbl_80005ED0
-	.4byte lbl_80005ED0
-	.4byte lbl_80005ED0
-	.4byte lbl_80005ED0
-	.4byte lbl_80005EA8
-
-.global lbl_80079E50
-lbl_80079E50:
-
-	# ROM: 0x76E50
-	.4byte lbl_800C3E60
-	.4byte 0
-	.4byte lbl_800066E4
-	.4byte lbl_8000672C
-
-.global lbl_80079E60
-lbl_80079E60:
-
-	# ROM: 0x76E60
-	.4byte func_800078F0
-	.4byte lbl_800078E8
-	.4byte func_800078F0
-	.4byte func_800078F0
-	.4byte func_800078F0
-	.4byte func_800078F0
-	.4byte func_800078F0
-	.4byte func_800078F0
-	.4byte func_800078F0
-	.4byte func_800078F0
-	.4byte func_800078F0
-	.4byte func_800078F0
-	.4byte lbl_8000781C
-	.4byte func_800078F0
-	.4byte lbl_800078E8
-	.4byte lbl_8000783C
-	.4byte lbl_800077FC
-
-.global lbl_80079EA4
-lbl_80079EA4:
-
-	# ROM: 0x76EA4
-	.4byte lbl_80008134
-	.4byte lbl_80007CEC
-	.4byte lbl_80007D00
-	.4byte lbl_80007D2C
-	.4byte lbl_80007D90
-	.4byte lbl_80007DDC
-	.4byte lbl_80007E30
-	.4byte lbl_80007E84
-	.4byte lbl_80007ED8
-	.4byte lbl_80007F60
-	.4byte lbl_80007FDC
-	.4byte lbl_80008024
-	.4byte lbl_800080A0
-	.4byte lbl_800080C8
-	.4byte lbl_80008134
-	.4byte lbl_80008114
-	.4byte lbl_800080B4
-
-.global lbl_80079EE8
-lbl_80079EE8:
-
-	# ROM: 0x76EE8
-	.4byte lbl_8000851C
-	.4byte lbl_8000851C
-	.4byte lbl_80008470
-	.4byte lbl_8000847C
-	.4byte lbl_80008488
-	.4byte lbl_80008494
-	.4byte lbl_800084A0
-	.4byte lbl_800084A0
-	.4byte lbl_800084B0
-	.4byte lbl_800084BC
-	.4byte lbl_800084C8
-	.4byte lbl_800084D4
-	.4byte lbl_800084E0
-	.4byte lbl_800084F8
-	.4byte lbl_8000851C
-	.4byte lbl_80008504
-	.4byte lbl_800084EC
-
-.global lbl_80079F2C
-lbl_80079F2C:
-
-	# ROM: 0x76F2C
-	.4byte lbl_800C3E78
-	.4byte 0
-	.4byte 0
-
-.global lbl_80079F38
-lbl_80079F38:
-
-	# ROM: 0x76F38
-	.4byte lbl_800C3E80
-	.4byte 0
-	.4byte lbl_80007BF8
-	.4byte lbl_800087D4
-
-.global lbl_80079F48
-lbl_80079F48:
+.global __files
+__files:
 
 	# ROM: 0x76F48
 	.4byte 0
@@ -338,7 +201,9 @@ lbl_8007A0C8:
 	.4byte lbl_8000A688
 	.4byte lbl_8000A6A0
 	.4byte lbl_8000A6B8
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007A1F0
 lbl_8007A1F0:
@@ -724,7 +589,9 @@ lbl_8007A710:
 	.4byte lbl_8000D918
 	.4byte lbl_8000D918
 	.4byte lbl_8000D900
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007A758
 lbl_8007A758:
@@ -890,16 +757,17 @@ lbl_8007A954:
 	.4byte lbl_80017590
 	.4byte lbl_80017598
 
-.global lbl_8007A970
-lbl_8007A970:
+.global gTRKRestoreFlags
+gTRKRestoreFlags:
 
 	# ROM: 0x77970
 	.4byte 0
 	.4byte 0
-	.4byte 0
+	.byte 0x00
+	.balign 4
 
-.global lbl_8007A97C
-lbl_8007A97C:
+.global gTRKExceptionStatus
+gTRKExceptionStatus:
 
 	# ROM: 0x7797C
 	.4byte 0
@@ -938,8 +806,8 @@ lbl_8007A9A0:
 	.4byte 0x00001700
 	.4byte 0
 
-.global lbl_8007A9E0
-lbl_8007A9E0:
+.global gDBCommTable
+gDBCommTable:
 
 	# ROM: 0x779E0
 	.4byte 0
@@ -949,21 +817,27 @@ lbl_8007A9E0:
 	.4byte 0
 	.4byte 0
 	.4byte 0
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007AA00
 lbl_8007AA00:
 
 	# ROM: 0x77A00
 	.asciz "<< Dolphin SDK - AI\trelease build: Sep  5 2002 05:34:25 (0x2301) >>"
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007AA48
 lbl_8007AA48:
 
 	# ROM: 0x77A48
 	.asciz "<< Dolphin SDK - AR\trelease build: Sep  5 2002 05:34:27 (0x2301) >>"
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007AA90
 lbl_8007AA90:
@@ -971,13 +845,17 @@ lbl_8007AA90:
 	# ROM: 0x77A90
 	.asciz "<< Dolphin SDK - ARQ\trelease build: Sep  5 2002 05:34:29 (0x2301) >>"
 	.balign 4
+	
+	# split
 
 .global lbl_8007AAD8
 lbl_8007AAD8:
 
 	# ROM: 0x77AD8
 	.asciz "<< Dolphin SDK - AX\trelease build: Mar 11 2003 11:19:39 (0x2301) >>"
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007AB20
 lbl_8007AB20:
@@ -1307,8 +1185,8 @@ lbl_8007AC00:
 	.4byte 0x66A46670
 	.4byte 0x663B6606
 	.4byte 0x65D2659D
-	.asciz "eie4e"
-	.byte 0x64, 0xCC
+	.4byte 0x65696534
+	.4byte 0x650064CC
 	.4byte 0x64986464
 	.4byte 0x643163FD
 	.4byte 0x63CA6396
@@ -5386,8 +5264,7 @@ lbl_8007EF60:
 	.4byte 0x00010000
 	.4byte 0x00020000
 	.4byte 0x00040000
-	.4byte 0
-	.4byte 0
+	.balign 16
 
 .global lbl_8007EF80
 lbl_8007EF80:
@@ -5437,8 +5314,9 @@ lbl_8007F038:
 	.asciz "__DSP_boot_task()  : Start Vector  : 0x%08X\n"
 	.balign 4
 	.asciz "__DSP_add_task() : Added task    : 0x%08X\n"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007F178
 lbl_8007F178:
@@ -5464,8 +5342,9 @@ lbl_8007F2AC:
 
 	# ROM: 0x7C2AC
 	.asciz "DVDRead(): specified area is out of the file  "
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007F2E0
 lbl_8007F2E0:
@@ -5614,8 +5493,9 @@ lbl_8007F518:
 	.asciz "Stream Hanger"
 	.balign 4
 	.asciz "IS-DOL-VIEWER"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007F628
 lbl_8007F628:
@@ -5684,12 +5564,12 @@ lbl_8007F66C:
 lbl_8007F73C:
 
 	# ROM: 0x7C73C
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
-	.4byte 0xBF800000
-	.4byte 0xC0000000
+	.float -1.0
+	.float -2.0
 	.4byte 0
 
 .global lbl_8007F758
@@ -5908,7 +5788,9 @@ lbl_8007F9B8:
 	.4byte 0x06060808
 	.4byte 0x0A0C0A08
 	.4byte 0x08000000
-	.4byte 0
+	.4byte 0x00000000
+	
+	# split
 
 .global lbl_8007F9F8
 lbl_8007F9F8:
@@ -6061,7 +5943,9 @@ lbl_8007FBE0:
 	.4byte lbl_800353F0
 	.4byte lbl_800353F0
 	.4byte lbl_800353DC
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007FC20
 lbl_8007FC20:
@@ -6184,7 +6068,9 @@ lbl_8007FD14:
 	.4byte lbl_80037F3C
 	.4byte lbl_80037C94
 	.4byte func_80037F54
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_8007FDA8
 lbl_8007FDA8:
@@ -7074,11 +6960,12 @@ lbl_80080B60:
 	.balign 4
 	.asciz "%x\t%d\t%x\t%x\t%x\n"
 	.asciz "--------Free\n"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
-.global lbl_80080EF8
-lbl_80080EF8:
+.global DSPInitCode
+DSPInitCode:
 
 	# ROM: 0x7DEF8
 	.4byte 0x029F0010
@@ -7142,8 +7029,9 @@ lbl_80080F78:
 	.asciz "L2 cache initialized\n"
 	.balign 4
 	.asciz "Locked cache machine check handler installed\n"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800811A8
 lbl_800811A8:
@@ -7228,7 +7116,9 @@ lbl_8008165C:
 	.4byte func_8003DF30
 	.4byte func_8003DF30
 	.4byte lbl_8003DEE4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800816A0
 lbl_800816A0:
@@ -7979,8 +7869,8 @@ lbl_80082208:
 	.asciz "OSUnlink: unknown relocation type %3d\n"
 	.balign 4
 
-.global lbl_80082230
-lbl_80082230:
+.global ResetFunctionInfo
+ResetFunctionInfo:
 
 	# ROM: 0x7F230
 	.4byte OnReset_2
@@ -8010,8 +7900,8 @@ lbl_80082298:
 	# ROM: 0x7F298
 	.asciz "<< Dolphin SDK - SI\trelease build: Sep  5 2002 05:33:08 (0x2301) >>"
 
-.global lbl_800822DC
-lbl_800822DC:
+.global Si
+Si:
 
 	# ROM: 0x7F2DC
 	.4byte 0xFFFFFFFF
@@ -8020,14 +7910,16 @@ lbl_800822DC:
 	.4byte 0
 	.4byte 0
 
-.global lbl_800822F0
-lbl_800822F0:
+.global Type
+Type:
 
 	# ROM: 0x7F2F0
 	.4byte 0x00000008
 	.4byte 0x00000008
 	.4byte 0x00000008
 	.4byte 0x00000008
+
+lbl_80082300:
 	.asciz "No response"
 	.asciz "N64 controller"
 	.balign 4
@@ -8045,11 +7937,12 @@ lbl_800822F0:
 	.asciz "Keyboard"
 	.balign 4
 	.asciz "Steering"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
-.global lbl_800823B0
-lbl_800823B0:
+.global XYNTSC
+XYNTSC:
 
 	# ROM: 0x7F3B0
 	.4byte 0x00F60200
@@ -8064,6 +7957,8 @@ lbl_800823B0:
 	.4byte 0x00830200
 	.4byte 0x00830200
 	.4byte 0x00830200
+
+lbl_800823E0:
 	.4byte 0x01280200
 	.4byte 0x000F1500
 	.4byte 0x001D0B00
@@ -8077,8 +7972,9 @@ lbl_800823B0:
 	.4byte 0x00680300
 	.4byte 0x009C0200
 	.asciz "SISetSamplingRate: unknown TV format. Use default."
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80082448
 lbl_80082448:
@@ -8258,10 +8154,10 @@ lbl_80082818:
 	# ROM: 0x7F818
 	.4byte 0
 	.4byte 0
-	.4byte 0x44200000
-	.4byte 0x43F00000
+	.float 640.0
+	.float 480.0
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_80082830
 lbl_80082830:
@@ -8357,7 +8253,9 @@ lbl_800828C0:
 	.4byte func_8004E8EC
 	.4byte func_8004E8EC
 	.4byte lbl_8004E8E8
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80082910
 lbl_80082910:
@@ -8394,8 +8292,9 @@ lbl_80082960:
 
 	# ROM: 0x7F960
 	.asciz "nuReLoadTexture.c"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80082978
 lbl_80082978:
