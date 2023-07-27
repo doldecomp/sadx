@@ -3,25 +3,7 @@
 .section .bss, "", @nobits  # 0x80085B20 - 0x800C3E60 ; 0x0003E340
 
 
-.global __atexit_funcs
-__atexit_funcs:
-	.skip 0x100
-
-.global lbl_800867C0
-lbl_800867C0:
-	.skip 0x38
-
-.global lbl_800867F8
-lbl_800867F8:
-	.skip 0x100
-
-.global lbl_800868F8
-lbl_800868F8:
-	.skip 0x100
-
-.global lbl_800869F8
-lbl_800869F8:
-	.skip 0x100
+.balign 8
 
 .global lbl_80086AF8
 lbl_80086AF8:

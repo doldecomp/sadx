@@ -5,29 +5,6 @@
 
 .balign 8
 
-.global __aborting
-__aborting:
-	.skip 0x4
-
-.global __atexit_curr_func
-__atexit_curr_func:
-	.skip 0x4
-
-.global __stdio_exit
-__stdio_exit:
-	.skip 0x4
-
-.global __console_exit
-__console_exit:
-	.skip 0x4
-
-.global lbl_800C40D0
-lbl_800C40D0:
-	.skip 0x1
-	.balign 8
-	
-	# split
-
 .global lbl_800C40D8
 lbl_800C40D8:
 	.skip 0x4

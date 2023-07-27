@@ -5,63 +5,6 @@
 
 .balign 8
 
-.global lbl_800C46A0
-lbl_800C46A0:
-
-	# ROM: 0x82D60
-	.double 0.0
-
-.global lbl_800C46A8
-lbl_800C46A8:
-
-	# ROM: 0x82D68
-	.double 1.0
-
-.global lbl_800C46B0
-lbl_800C46B0:
-
-	# ROM: 0x82D70
-	.double -1.0
-
-.global lbl_800C46B8
-lbl_800C46B8:
-
-	# ROM: 0x82D78
-	.double 5.0
-
-.global lbl_800C46C0
-lbl_800C46C0:
-
-	# ROM: 0x82D80
-	.4byte 0x43300000
-	.4byte 0x00000000
-
-.global lbl_800C46C8
-lbl_800C46C8:
-
-	# ROM: 0x82D88
-	.4byte 0x43300000
-	.4byte 0x80000000
-	
-	# possible split location 1
-
-.global lbl_800C46D0
-lbl_800C46D0:
-
-	# ROM: 0x82D90
-	.4byte 0x0000C0E0
-	.balign 8
-	
-	# possible split location 2
-
-.global lbl_800C46D8
-lbl_800C46D8:
-
-	# ROM: 0x82D98
-	.double 0.0
-	
-	# split
-
 .global lbl_800C46E0
 lbl_800C46E0:
 
