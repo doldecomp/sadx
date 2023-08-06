@@ -5,26 +5,6 @@
 
 .balign 8
 
-.global lbl_800C40D8
-lbl_800C40D8:
-	.skip 0x4
-	.balign 8
-
-.global lbl_800C40E0
-lbl_800C40E0:
-	.skip 0x4
-	.balign 8
-	
-	# split
-
-.global lbl_800C40E8
-lbl_800C40E8:
-	.skip 0x8
-
-.global lbl_800C40F0
-lbl_800C40F0:
-	.skip 0x8
-
 .global lbl_800C40F8
 lbl_800C40F8:
 	.skip 0x4

@@ -1950,7 +1950,6 @@ lbl_8000D818:
 /* 8000D818 0000A638  7C C3 33 78 */	mr r3, r6
 /* 8000D81C 0000A63C  4E 80 00 20 */	blr
 
-.global parse_format
 parse_format:
 /* 8000D820 0000A640  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8000D824 0000A644  7C 08 02 A6 */	mflr r0

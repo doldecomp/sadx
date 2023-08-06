@@ -5,15 +5,6 @@
 
 .balign 8
 
-.global next
-next:
-
-	# ROM: 0x82B50
-	.4byte 0x00000001
-	.balign 8
-	
-	# split
-
 .global lbl_800C3E98
 lbl_800C3E98:
 

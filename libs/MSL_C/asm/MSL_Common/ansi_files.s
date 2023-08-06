@@ -107,8 +107,8 @@ __files:
 	.4byte 0
 	.4byte 0
 	.4byte __read_console
-	.4byte lbl_80010AD8
-	.4byte lbl_80010AD0
+	.4byte __write_console
+	.4byte __close_console
 	.4byte 0
 	.4byte lbl_80079F98
 lbl_80079F98:
@@ -128,8 +128,8 @@ lbl_80079F98:
 	.4byte 0
 	.4byte 0
 	.4byte __read_console
-	.4byte lbl_80010AD8
-	.4byte lbl_80010AD0
+	.4byte __write_console
+	.4byte __close_console
 	.4byte 0
 	.4byte lbl_80079FE8
 lbl_80079FE8:
@@ -149,8 +149,8 @@ lbl_80079FE8:
 	.4byte 0
 	.4byte 0
 	.4byte __read_console
-	.4byte lbl_80010AD8
-	.4byte lbl_80010AD0
+	.4byte __write_console
+	.4byte __close_console
 	.4byte 0
 	.4byte lbl_8007A038
 lbl_8007A038:

@@ -5,10 +5,6 @@
 
 .balign 8
 
-.global lbl_80086AF8
-lbl_80086AF8:
-	.skip 0x18
-
 .global lbl_80086B10
 lbl_80086B10:
 	.skip 0x28
