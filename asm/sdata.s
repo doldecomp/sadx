@@ -3,59 +3,7 @@
 .section .sdata, "wa"  # 0x800C3E60 - 0x800C4080 ; 0x00000220
 
 
-.global lbl_800C3E60
-lbl_800C3E60:
-
-	# ROM: 0x82B20
-	.4byte lbl_800764E0
-	.4byte 0
-
-.global lbl_800C3E68
-lbl_800C3E68:
-
-	# ROM: 0x82B28
-	.4byte sqrt
-
-.global lbl_800C3E6C
-lbl_800C3E6C:
-
-	# ROM: 0x82B2C
-	.4byte lbl_80006C64
-
-.global lbl_800C3E70
-lbl_800C3E70:
-
-	# ROM: 0x82B30
-	.4byte 0xFFFFFFFE
-	.4byte 0
-
-.global lbl_800C3E78
-lbl_800C3E78:
-
-	# ROM: 0x82B38
-	.4byte lbl_80076580
-	.4byte 0
-
-.global lbl_800C3E80
-lbl_800C3E80:
-
-	# ROM: 0x82B40
-	.4byte lbl_8007656C
-	.4byte lbl_80079F2C
-
-.global lbl_800C3E88
-lbl_800C3E88:
-
-	# ROM: 0x82B48
-	.4byte 0
-	.4byte 0
-
-.global lbl_800C3E90
-lbl_800C3E90:
-
-	# ROM: 0x82B50
-	.4byte 0x00000001
-	.4byte 0
+.balign 8
 
 .global lbl_800C3E98
 lbl_800C3E98:
@@ -102,35 +50,45 @@ lbl_800C3EC0:
 
 	# ROM: 0x82B80
 	.4byte lbl_8007AA00
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3EC8
 lbl_800C3EC8:
 
 	# ROM: 0x82B88
 	.4byte lbl_8007AA48
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3ED0
 lbl_800C3ED0:
 
 	# ROM: 0x82B90
 	.4byte lbl_8007AA90
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3ED8
 lbl_800C3ED8:
 
 	# ROM: 0x82B98
 	.4byte lbl_8007AAD8
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3EE0
 lbl_800C3EE0:
 
 	# ROM: 0x82BA0
-	.4byte 0x1F200000
-	.4byte 0
+	.2byte 0x1F20
+	.balign 8
+	
+	# split
 
 .global lbl_800C3EE8
 lbl_800C3EE8:
@@ -149,7 +107,9 @@ lbl_800C3EF0:
 
 	# ROM: 0x82BB0
 	.4byte lbl_8007ED90
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3EF8
 lbl_800C3EF8:
@@ -170,14 +130,18 @@ lbl_800C3F08:
 
 	# ROM: 0x82BC8
 	.4byte lbl_8007EFB8
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3F10
 lbl_800C3F10:
 
 	# ROM: 0x82BD0
 	.4byte 0x00000001
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3F18
 lbl_800C3F18:
@@ -185,14 +149,14 @@ lbl_800C3F18:
 	# ROM: 0x82BD8
 	.asciz "dvdfs.c"
 
-.global lbl_800C3F20
-lbl_800C3F20:
+.global __DVDVersion
+__DVDVersion:
 
 	# ROM: 0x82BE0
 	.4byte lbl_8007F2E0
 
-.global lbl_800C3F24
-lbl_800C3F24:
+.global autoInvalidation
+autoInvalidation:
 
 	# ROM: 0x82BE4
 	.4byte 0x00000001
@@ -226,28 +190,34 @@ lbl_800C3F38:
 lbl_800C3F3C:
 
 	# ROM: 0x82BFC
-	.4byte 0x4F464600
+	.asciz "OFF"
 
 .global lbl_800C3F40
 lbl_800C3F40:
 
 	# ROM: 0x82C00
-	.4byte 0x4F4E0000
-	.4byte 0
+	.asciz "ON"
+	.balign 8
+	
+	# split
 
-.global lbl_800C3F48
-lbl_800C3F48:
+.global __EXIVersion
+__EXIVersion:
 
 	# ROM: 0x82C08
 	.4byte lbl_8007F518
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3F50
 lbl_800C3F50:
 
 	# ROM: 0x82C10
 	.4byte lbl_8007F628
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3F58
 lbl_800C3F58:
@@ -266,7 +236,9 @@ lbl_800C3F60:
 
 	# ROM: 0x82C20
 	.4byte 0x000C0102
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3F68
 lbl_800C3F68:
@@ -328,11 +300,13 @@ lbl_800C3FA0:
 lbl_800C3FA8:
 
 	# ROM: 0x82C68
-	.4byte 0
-	.4byte 0x3F800000
+	.float 0.0
+	.float 1.0
+	
+	# split
 
-.global lbl_800C3FB0
-lbl_800C3FB0:
+.global __OSVersion
+__OSVersion:
 
 	# ROM: 0x82C70
 	.4byte lbl_80080968
@@ -348,21 +322,26 @@ lbl_800C3FB4:
 lbl_800C3FBC:
 
 	# ROM: 0x82C7C
-	.4byte 0x25730A00
+	.asciz "%s\n"
+	.balign 4
 
 .global lbl_800C3FC0
 lbl_800C3FC0:
 
 	# ROM: 0x82C80
 	.4byte 0xFFFFFFFF
-	.4byte 0
+	.balign 8
+	
+	# split
 
-.global lbl_800C3FC8
-lbl_800C3FC8:
+.global __OSArenaLo
+__OSArenaLo:
 
 	# ROM: 0x82C88
 	.4byte 0xFFFFFFFF
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3FD0
 lbl_800C3FD0:
@@ -380,15 +359,19 @@ lbl_800C3FD4:
 lbl_800C3FD8:
 
 	# ROM: 0x82C98
-	.4byte 0xFFFF0000
-	.4byte 0
+	.2byte 0xFFFF
+	.balign 8
+	
+	# split
 
-.global lbl_800C3FE0
-lbl_800C3FE0:
+.global SwitchThreadCallback
+SwitchThreadCallback:
 
 	# ROM: 0x82CA0
 	.4byte lbl_800419CC
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C3FE8
 lbl_800C3FE8:
@@ -438,12 +421,14 @@ lbl_800C4004:
 	# ROM: 0x82CC4
 	.4byte 0x42000000
 
-.global lbl_800C4008
-lbl_800C4008:
+.global __SIVersion
+__SIVersion:
 
 	# ROM: 0x82CC8
 	.4byte lbl_80082298
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C4010
 lbl_800C4010:
@@ -456,8 +441,9 @@ lbl_800C4014:
 
 	# ROM: 0x82CD4
 	.asciz "vi.c"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C4020
 lbl_800C4020:
@@ -478,21 +464,23 @@ lbl_800C4028:
 lbl_800C4034:
 
 	# ROM: 0x82CF4
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 
 .global lbl_800C403C
 lbl_800C403C:
 
 	# ROM: 0x82CFC
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_800C4040
 lbl_800C4040:
 
 	# ROM: 0x82D00
-	.4byte 0
-	.4byte 0
+	.float 0.0
+	.balign 8
+	
+	# split
 
 .global lbl_800C4048
 lbl_800C4048:
@@ -520,7 +508,9 @@ lbl_800C4060:
 
 	# ROM: 0x82D20
 	.4byte lbl_800A7B00
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800C4068
 lbl_800C4068:

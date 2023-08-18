@@ -8,7 +8,7 @@ else
   WINE ?= wine
 endif
 
-COMPILER_VERSION ?= 2.6
+COMPILER_VERSION ?= 2.0
 
 VERBOSE ?= 0
 
@@ -75,8 +75,10 @@ endif
 # Files
 #-------------------------------------------------------------------------------
 
+BUILD_DIR := build
+
 BASEROM  := baserom.dol
-DOL      := sadx_usa.dol
+DOL      := $(BUILD_DIR)/sadx_usa.dol
 ELF      := $(DOL:.dol=.elf)
 MAP      := $(DOL:.dol=.map)
 
@@ -86,22 +88,13 @@ DOL_LCF := static.lcf
 REL_LCF := partial.lcf
 
 # main dol sources
-SOURCES := \
-    asm/init.s \
-    asm/text.s \
-    asm/extab_.s \
-    asm/extabindex_.s \
-    asm/ctors.s \
-    asm/dtors.s \
-    asm/rodata.s \
-    asm/data.s \
-    asm/bss.s \
-    asm/sdata.s \
-    asm/sbss.s \
-    asm/sdata2.s \
-    asm/sbss2.s
+include obj_files.mk
 
-O_FILES := $(addsuffix .o,$(basename $(SOURCES)))
+O_FILES := $(INIT_O_FILES) $(EXTAB_O_FILES) $(EXTABINDEX_O_FILES) $(SADX_O_FILES)	\
+           $(RUNTIME_O_FILES) $(MSL_C_O_FILES) $(TEXT_O_FILES) $(RODATA_O_FILES)	\
+           $(DATA_O_FILES) $(BSS_O_FILES) $(SDATA_O_FILES) $(SBSS_O_FILES)	\
+		   $(SDATA2_O_FILES)
+
 ALL_O_FILES := $(O_FILES)
 $(ELF): $(O_FILES)
 
@@ -112,7 +105,7 @@ $(ELF): $(O_FILES)
 .PHONY: all default
 
 all: $(DOL)
-	$(QUIET) $(SHA1SUM) -c sadx_usa.sha1
+	$(QUIET) $(SHA1SUM) -c sha1/sadx_usa.sha1
 
 # static module (.dol file)
 %.dol: %.elf $(ELF2DOL)
@@ -152,7 +145,7 @@ endef
 %.o: %.cp
 	$(COMPILE)
 
-%.o: %.s
+$(BUILD_DIR)/%.o: %.s
 	@echo Assembling $<
 	$(QUIET) $(AS) $(ASFLAGS) -o $@ $<
 

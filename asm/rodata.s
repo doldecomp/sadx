@@ -3,425 +3,16 @@
 .section .rodata, "wa"  # 0x800764E0 - 0x80079C60 ; 0x00003780
 
 
-.global lbl_800764E0
-lbl_800764E0:
-
-	# ROM: 0x734E0
-	.asciz "std::exception"
-	.balign 4
-
-.global lbl_800764F0
-lbl_800764F0:
-
-	# ROM: 0x734F0
-	.asciz "exception"
-	.balign 4
-	.4byte 0
-
-.global lbl_80076500
-lbl_80076500:
-
-	# ROM: 0x73500
-	.4byte 0
-	.4byte 0
-	.4byte 0x41F00000
-	.4byte 0
-	.4byte 0x41E00000
-	.4byte 0
-
-.global lbl_80076518
-lbl_80076518:
-
-	# ROM: 0x73518
-	.asciz "!bad_exception!!"
-	.balign 4
-	.asciz "!std::exception!!std::bad_exception!!"
-	.balign 4
-	.asciz "!std::bad_exception!!"
-	.balign 4
-
-.global lbl_8007656C
-lbl_8007656C:
-
-	# ROM: 0x7356C
-	.asciz "std::bad_exception"
-	.balign 4
-
-.global lbl_80076580
-lbl_80076580:
-
-	# ROM: 0x73580
-	.asciz "std::exception"
-	.balign 4
-
-.global lbl_80076590
-lbl_80076590:
-
-	# ROM: 0x73590
-	.asciz "bad_exception"
-	.balign 4
-	.asciz "exception"
-	.balign 4
-	.4byte 0
-
-.global lbl_800765B0
-lbl_800765B0:
-
-	# ROM: 0x735B0
-	.asciz "GCN_Mem_Alloc.c : InitDefaultHeap. No Heap Available\n"
-	.balign 4
-
-.global lbl_800765E8
-lbl_800765E8:
-
-	# ROM: 0x735E8
-	.asciz "Metrowerks CW runtime library initializing default heap\n"
-	.balign 4
-	.4byte 0
-
-.global lbl_80076628
-lbl_80076628:
-
-	# ROM: 0x73628
-	.4byte 0x00000004
-	.4byte 0x0000000C
-	.4byte 0x00000014
-	.4byte 0x00000024
-	.4byte 0x00000034
-	.4byte 0x00000044
-
-.global lbl_80076640
-lbl_80076640:
-
-	# ROM: 0x73640
-	.asciz "179769313486231580793729011405303420"
-	.byte 0x35, 0x34, 0x32
-	.asciz "101086242752217003726400434970855712890625"
-	.byte 0x31
-	.asciz "1102230246251565404236316680908203125"
-	.byte 0x32, 0x33
-	.asciz "283064365386962890625"
-	.byte 0x31, 0x35
-	.asciz "2587890625"
-	.byte 0x33
-	.asciz "90625"
-	.byte 0x37, 0x38
-	.4byte 0x31323500
-	.asciz "15625"
-	.byte 0x33, 0x31
-	.4byte 0x32350036
-	.4byte 0x32350031
-	.4byte 0x32350032
-	.4byte 0x35003500
-	.4byte 0x31003200
-	.4byte 0x34003800
-	.4byte 0x31360033
-	.4byte 0x32003634
-	.4byte 0x00313238
-	.4byte 0x00323536
-	.4byte 0
-
-.global lbl_80076720
-lbl_80076720:
-
-	# ROM: 0x73720
-	.2byte 0x2E00
-
-.global lbl_80076722
-lbl_80076722:
-
-	# ROM: 0x73722
-	.byte 0x00, 0x43
-	.4byte 0
-
-.global lbl_80076728
-lbl_80076728:
-
-	# ROM: 0x73728
-	.4byte 0x002D494E
-	.4byte 0x46002D69
-	.4byte 0x6E660049
-	.4byte 0x4E460069
-	.4byte 0x6E66002D
-	.4byte 0x4E414E00
-	.asciz "-nan"
-	.byte 0x4E, 0x41, 0x4E
-	.4byte 0x006E616E
-	.4byte 0
-
-.global lbl_80076750
-lbl_80076750:
-
-	# ROM: 0x73750
-	.4byte 0
-	.4byte 0x7FFFFFFF
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-
-.global lbl_80076778
-lbl_80076778:
-
-	# ROM: 0x73778
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-
-.global lbl_800767A4
-lbl_800767A4:
-
-	# ROM: 0x737A4
-	.asciz "INFINITY"
-	.balign 4
-
-.global lbl_800767B0
-lbl_800767B0:
-
-	# ROM: 0x737B0
-	.4byte 0x3FF00000
-	.4byte 0
-	.4byte 0x3FF80000
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x3FE2B803
-	.4byte 0x40000000
-	.4byte 0
-	.4byte 0
-	.4byte 0x3E4CFDEB
-	.4byte 0x43CFD006
-
-.global lbl_800767E0
-lbl_800767E0:
-
-	# ROM: 0x737E0
-	.4byte 0x00A2F983
-	.4byte 0x006E4E44
-	.4byte 0x001529FC
-	.4byte 0x002757D1
-	.4byte 0x00F534DD
-	.4byte 0x00C0DB62
-	.4byte 0x0095993C
-	.4byte 0x00439041
-	.4byte 0x00FE5163
-	.4byte 0x00ABDEBB
-	.4byte 0x00C561B7
-	.4byte 0x00246E3A
-	.4byte 0x00424DD2
-	.4byte 0x00E00649
-	.4byte 0x002EEA09
-	.4byte 0x00D1921C
-	.4byte 0x00FE1DEB
-	.4byte 0x001CB129
-	.4byte 0x00A73EE8
-	.4byte 0x008235F5
-	.4byte 0x002EBB44
-	.4byte 0x0084E99C
-	.4byte 0x007026B4
-	.4byte 0x005F7E41
-	.4byte 0x003991D6
-	.4byte 0x00398353
-	.4byte 0x0039F49C
-	.4byte 0x00845F8B
-	.4byte 0x00BDF928
-	.4byte 0x003B1FF8
-	.4byte 0x0097FFDE
-	.4byte 0x0005980F
-	.4byte 0x00EF2F11
-	.4byte 0x008B5A0A
-	.4byte 0x006D1F6D
-	.4byte 0x00367ECF
-	.4byte 0x0027CB09
-	.4byte 0x00B74F46
-	.4byte 0x003F669E
-	.4byte 0x005FEA2D
-	.4byte 0x007527BA
-	.4byte 0x00C7EBE5
-	.4byte 0x00F17B3D
-	.4byte 0x000739F7
-	.4byte 0x008A5292
-	.4byte 0x00EA6BFB
-	.4byte 0x005FB11F
-	.4byte 0x008D5D08
-	.4byte 0x00560330
-	.4byte 0x0046FC7B
-	.4byte 0x006BABF0
-	.4byte 0x00CFBC20
-	.4byte 0x009AF436
-	.4byte 0x001DA9E3
-	.4byte 0x0091615E
-	.4byte 0x00E61B08
-	.4byte 0x00659985
-	.4byte 0x005F14A0
-	.4byte 0x0068408D
-	.4byte 0x00FFD880
-	.4byte 0x004D7327
-	.4byte 0x00310606
-	.4byte 0x001556CA
-	.4byte 0x0073A8C9
-	.4byte 0x0060E27B
-	.4byte 0x00C08C6B
-
-.global lbl_800768E8
-lbl_800768E8:
-
-	# ROM: 0x738E8
-	.4byte 0x3FF921FB
-	.4byte 0x400921FB
-	.4byte 0x4012D97C
-	.4byte 0x401921FB
-	.4byte 0x401F6A7A
-	.4byte 0x4022D97C
-	.4byte 0x4025FDBB
-	.4byte 0x402921FB
-	.4byte 0x402C463A
-	.4byte 0x402F6A7A
-	.4byte 0x4031475C
-	.4byte 0x4032D97C
-	.4byte 0x40346B9C
-	.4byte 0x4035FDBB
-	.4byte 0x40378FDB
-	.4byte 0x403921FB
-	.4byte 0x403AB41B
-	.4byte 0x403C463A
-	.4byte 0x403DD85A
-	.4byte 0x403F6A7A
-	.4byte 0x40407E4C
-	.4byte 0x4041475C
-	.4byte 0x4042106C
-	.4byte 0x4042D97C
-	.4byte 0x4043A28C
-	.4byte 0x40446B9C
-	.4byte 0x404534AC
-	.4byte 0x4045FDBB
-	.4byte 0x4046C6CB
-	.4byte 0x40478FDB
-	.4byte 0x404858EB
-	.4byte 0x404921FB
-
-.global lbl_80076968
-lbl_80076968:
-
-	# ROM: 0x73968
-	.4byte 0x00000002
-	.4byte 0x00000003
-	.4byte 0x00000004
-	.4byte 0x00000006
-
-.global lbl_80076978
-lbl_80076978:
-
-	# ROM: 0x73978
-	.4byte 0x3FF921FB
-	.4byte 0x40000000
-	.asciz ">tD-"
-	.balign 4
-	.4byte 0x3CF84698
-	.4byte 0x80000000
-	.4byte 0x3B78CC51
-	.4byte 0x60000000
-	.4byte 0x39F01B83
-	.4byte 0x80000000
-	.asciz "8z% @"
-	.balign 4
-	.4byte 0x36E38222
-	.4byte 0x80000000
-	.4byte 0x3569F31D
-	.4byte 0
-
-.global lbl_800769B8
-lbl_800769B8:
-
-	# ROM: 0x739B8
-	.4byte 0x3FD55555
-	.4byte 0x55555563
-	.4byte 0x3FC11111
-	.4byte 0x1110FE7A
-	.4byte 0x3FABA1BA
-	.4byte 0x1BB341FE
-	.4byte 0x3F9664F4
-	.4byte 0x8406D637
-	.4byte 0x3F8226E3
-	.4byte 0xE96E8493
-	.4byte 0x3F6D6D22
-	.4byte 0xC9560328
-	.4byte 0x3F57DBC8
-	.4byte 0xFEE08315
-	.4byte 0x3F4344D8
-	.4byte 0xF2F26501
-	.4byte 0x3F3026F7
-	.4byte 0x1A8D1068
-	.4byte 0x3F147E88
-	.4byte 0xA03792A6
-	.4byte 0x3F12B80F
-	.4byte 0x32F0A7E9
-	.4byte 0xBEF375CB
-	.4byte 0xDB605373
-	.4byte 0x3EFB2A70
-	.4byte 0x74BF7AD4
-
-.global lbl_80076A20
-lbl_80076A20:
-
-	# ROM: 0x73A20
-	.4byte 0x3FDDAC67
-	.4byte 0x0561BB4F
-	.4byte 0x3FE921FB
-	.4byte 0x54442D18
-	.4byte 0x3FEF730B
-	.4byte 0xD281F69B
-	.4byte 0x3FF921FB
-	.4byte 0x54442D18
-	.4byte 0x3C7A2B7F
-	.4byte 0x222F65E2
-	.4byte 0x3C81A626
-	.4byte 0x33145C07
-	.4byte 0x3C700788
-	.4byte 0x7AF0CBBD
-	.4byte 0x3C91A626
-	.4byte 0x33145C07
-	.4byte 0x3FD55555
-	.4byte 0x5555550D
-	.4byte 0xBFC99999
-	.4byte 0x9998EBC4
-	.4byte 0x3FC24924
-	.4byte 0x920083FF
-	.4byte 0xBFBC71C6
-	.4byte 0xFE231671
-	.4byte 0x3FB745CD
-	.4byte 0xC54C206E
-	.4byte 0xBFB3B0F2
-	.4byte 0xAF749A6D
-	.4byte 0x3FB10D66
-	.4byte 0xA0D03D51
-	.4byte 0xBFADDE2D
-	.4byte 0x52DEFD9A
-	.4byte 0x3FA97B4B
-	.4byte 0x24760DEB
-	.4byte 0xBFA2B444
-	.4byte 0x2C6A6C2F
-	.4byte 0x3F90AD3A
-	.4byte 0xE322DA11
+.balign 8
 
 .global lbl_80076AB8
 lbl_80076AB8:
 
 	# ROM: 0x73AB8
 	.asciz "MetroTRK for GAMECUBE v0.10"
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80076AD8
 lbl_80076AD8:
@@ -502,7 +93,7 @@ lbl_80076BC8:
 
 	# ROM: 0x73BC8
 	.4byte 0
-	.4byte 0x3F800000
+	.float 1.0
 	.4byte 0
 	.4byte 0
 
@@ -588,7 +179,9 @@ lbl_80076CA8:
 
 	# ROM: 0x73CA8
 	.4byte lbl_80076C78
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80076CB0
 lbl_80076CB0:
@@ -602,8 +195,9 @@ lbl_80076CD0:
 
 	# ROM: 0x73CD0
 	.asciz "Can not decode this file format."
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80076CF8
 lbl_80076CF8:
@@ -658,8 +252,10 @@ lbl_80076D28:
 lbl_80076D30:
 
 	# ROM: 0x73D30
-	.4byte 0x2E736400
-	.4byte 0
+	.asciz ".sd"
+	.balign 8
+	
+	# split
 
 .global lbl_80076D38
 lbl_80076D38:
@@ -1184,8 +780,9 @@ lbl_80076D38:
 	.asciz "can't play AHX data by this handle"
 	.balign 4
 	.asciz "CRI-MW"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800775C0
 lbl_800775C0:
@@ -1205,53 +802,52 @@ lbl_800775C8:
 lbl_800775D0:
 
 	# ROM: 0x745D0
-	.4byte 0x40C90FDB
-	.4byte 0
+	.float 6.2831855
+	.balign 8
+	
+	# split
 
 .global lbl_800775D8
 lbl_800775D8:
 
 	# ROM: 0x745D8
-	.4byte 0x40000000
-	.4byte 0
+	.double 2.0
 
 .global lbl_800775E0
 lbl_800775E0:
 
 	# ROM: 0x745E0
-	.4byte 0x3FE00000
-	.4byte 0
+	.double 0.5
 
 .global lbl_800775E8
 lbl_800775E8:
 
 	# ROM: 0x745E8
-	.4byte 0x40080000
-	.4byte 0
+	.double 3.0
 
 .global lbl_800775F0
 lbl_800775F0:
 
 	# ROM: 0x745F0
-	.4byte 0x3F800000
+	.float 1.0
 
 .global lbl_800775F4
 lbl_800775F4:
 
 	# ROM: 0x745F4
-	.4byte 0
+	.float 0.0
 
 .global lbl_800775F8
 lbl_800775F8:
 
 	# ROM: 0x745F8
-	.4byte 0x45800000
+	.float 4096.0
 
 .global lbl_800775FC
 lbl_800775FC:
 
 	# ROM: 0x745FC
-	.4byte 0x40000000
+	.float 2.0
 
 .global lbl_80077600
 lbl_80077600:
@@ -1285,16 +881,16 @@ lbl_80077618:
 lbl_80077620:
 
 	# ROM: 0x74620
-	.4byte 0x40DFFFC0
-	.4byte 0
+	.double 32767.0
 
 .global lbl_80077628
 lbl_80077628:
 
 	# ROM: 0x74628
 	.asciz "E02110501 adxstmf_stat_exec: can't open "
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80077658
 lbl_80077658:
@@ -1350,7 +946,7 @@ lbl_80077834:
 	.4byte 0
 	.asciz "E02080835 ADXT_GetIbufRemainTime: parameter error"
 	.balign 4
-	.4byte 0xBF800000
+	.float -1.0
 
 .global lbl_800778F8
 lbl_800778F8:
@@ -1437,11 +1033,11 @@ lbl_80077B98:
 	# ROM: 0x74B98
 	.asciz "E02080817 ADXT_GetNumSmpl: parameter error"
 	.balign 4
-	.4byte 0x42C80000
+	.float 100.0
 	.asciz "E02080815 ADXT_GetTime: parameter error"
-	.4byte 0x447A0000
-	.4byte 0x42700000
-	.4byte 0xC2700000
+	.float 1000.0
+	.float 60.0
+	.float -60.0
 
 .global lbl_80077BFC
 lbl_80077BFC:
@@ -1473,7 +1069,7 @@ lbl_80077C74:
 lbl_80077C9C:
 
 	# ROM: 0x74C9C
-	.4byte 0x3F59999A
+	.float 0.85
 
 .global lbl_80077CA0
 lbl_80077CA0:
@@ -1494,7 +1090,9 @@ lbl_80077CF8:
 
 	# ROM: 0x74CF8
 	.asciz "E8101202 ADXT_StartAfs: can't open "
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80077D20
 lbl_80077D20:
@@ -1534,8 +1132,9 @@ lbl_80077DE8:
 
 	# ROM: 0x74DE8
 	.asciz "1060102: Internal Error: adxm_goto_mwidle_border"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80077E20
 lbl_80077E20:
@@ -1589,7 +1188,9 @@ lbl_80077EE8:
 
 	# ROM: 0x74EE8
 	.4byte lbl_80077EB8
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80077EF0
 lbl_80077EF0:
@@ -1681,8 +1282,9 @@ lbl_800782B4:
 	.asciz "E0042401:multi-load partition.(load partition)"
 	.balign 4
 	.asciz "E9040804:can't open file.(load partition)"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800784A0
 lbl_800784A0:
@@ -2017,7 +1619,9 @@ lbl_800793D0:
 
 	# ROM: 0x763D0
 	.4byte lbl_800793A0
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_800793D8
 lbl_800793D8:
@@ -2220,8 +1824,9 @@ lbl_800798C0:
 	.asciz "E1070306:Can't create SJ.\n"
 	.balign 4
 	.asciz "E1070307:Can't acquire voice(AX).\n"
-	.balign 4
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80079A78
 lbl_80079A78:
@@ -2267,14 +1872,18 @@ lbl_80079B68:
 
 	# ROM: 0x76B68
 	.asciz "AX SDLIB: gcaxNewAramBank(%d,%d) failed (should not happen\n"
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80079BA8
 lbl_80079BA8:
 
 	# ROM: 0x76BA8
 	.asciz "AX SDLIB: AXAcquireVoice() failed in drop callback\n"
-	.4byte 0
+	.balign 8
+	
+	# split
 
 .global lbl_80079BE0
 lbl_80079BE0:
