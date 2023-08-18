@@ -33,7 +33,7 @@ SECTIONS
 
 FORCEACTIVE
 {
-    srand
+	srand
 	rand
 	ceil
 	asin

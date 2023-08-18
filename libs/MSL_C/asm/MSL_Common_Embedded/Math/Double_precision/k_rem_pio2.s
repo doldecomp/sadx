@@ -1045,7 +1045,7 @@ PIo2:
 	.4byte 0x36E38222
 	.4byte 0x80000000
 	.4byte 0x3569F31D
-	.4byte 0
+	.4byte 0x00000000
 
 
 .section .sdata2, "wa"  # 0x800C4680 - 0x800C5140 ; 0x00000AC0
