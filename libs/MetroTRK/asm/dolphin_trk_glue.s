@@ -1,0 +1,418 @@
+.include "macros.s"
+
+.section .text, "ax"  # 0x800058A0 - 0x800764A0 ; 0x00070C00
+
+
+.global TRKLoadContext
+TRKLoadContext:
+/* 8001AB2C 0001794C  80 03 00 00 */	lwz r0, 0x0(r3)
+/* 8001AB30 00017950  80 23 00 04 */	lwz r1, 0x4(r3)
+/* 8001AB34 00017954  80 43 00 08 */	lwz r2, 0x8(r3)
+/* 8001AB38 00017958  A0 A3 01 A2 */	lhz r5, 0x1a2(r3)
+/* 8001AB3C 0001795C  54 A6 07 BD */	rlwinm. r6, r5, 0, 30, 30
+/* 8001AB40 00017960  41 82 00 14 */	beq lbl_8001AB54
+/* 8001AB44 00017964  54 A5 07 FA */	rlwinm r5, r5, 0, 31, 29
+/* 8001AB48 00017968  B0 A3 01 A2 */	sth r5, 0x1a2(r3)
+/* 8001AB4C 0001796C  B8 A3 00 14 */	lmw r5, 0x14(r3)
+/* 8001AB50 00017970  48 00 00 08 */	b lbl_8001AB58
+lbl_8001AB54:
+/* 8001AB54 00017974  B9 A3 00 34 */	lmw r13, 0x34(r3)
+lbl_8001AB58:
+/* 8001AB58 00017978  7C 7F 1B 78 */	mr r31, r3
+/* 8001AB5C 0001797C  7C 83 23 78 */	mr r3, r4
+/* 8001AB60 00017980  80 9F 00 80 */	lwz r4, 0x80(r31)
+/* 8001AB64 00017984  7C 8F F1 20 */	mtcrf 255, r4
+/* 8001AB68 00017988  80 9F 00 84 */	lwz r4, 0x84(r31)
+/* 8001AB6C 0001798C  7C 88 03 A6 */	mtlr r4
+/* 8001AB70 00017990  80 9F 00 88 */	lwz r4, 0x88(r31)
+/* 8001AB74 00017994  7C 89 03 A6 */	mtctr r4
+/* 8001AB78 00017998  80 9F 00 8C */	lwz r4, 0x8c(r31)
+/* 8001AB7C 0001799C  7C 81 03 A6 */	mtxer r4
+/* 8001AB80 000179A0  7C 80 00 A6 */	mfmsr r4
+/* 8001AB84 000179A4  54 84 04 5E */	rlwinm r4, r4, 0, 17, 15
+/* 8001AB88 000179A8  54 84 07 FA */	rlwinm r4, r4, 0, 31, 29
+/* 8001AB8C 000179AC  7C 80 01 24 */	mtmsr r4
+/* 8001AB90 000179B0  7C 51 43 A6 */	mtspr 273, r2
+/* 8001AB94 000179B4  80 9F 00 0C */	lwz r4, 0xc(r31)
+/* 8001AB98 000179B8  7C 92 43 A6 */	mtspr 274, r4
+/* 8001AB9C 000179BC  80 9F 00 10 */	lwz r4, 0x10(r31)
+/* 8001ABA0 000179C0  7C 93 43 A6 */	mtspr 275, r4
+/* 8001ABA4 000179C4  80 5F 01 98 */	lwz r2, 0x198(r31)
+/* 8001ABA8 000179C8  80 9F 01 9C */	lwz r4, 0x19c(r31)
+/* 8001ABAC 000179CC  83 FF 00 7C */	lwz r31, 0x7c(r31)
+/* 8001ABB0 000179D0  4B FF E2 1C */	b TRKInterruptHandler
+
+.global TRKUARTInterruptHandler
+TRKUARTInterruptHandler:
+/* 8001ABB4 000179D4  4E 80 00 20 */	blr
+
+.global TRK_board_display
+TRK_board_display:
+/* 8001ABB8 000179D8  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8001ABBC 000179DC  7C 08 02 A6 */	mflr r0
+/* 8001ABC0 000179E0  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8001ABC4 000179E4  4C C6 31 82 */	crclr 6
+/* 8001ABC8 000179E8  48 02 2C F1 */	bl OSReport
+/* 8001ABCC 000179EC  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8001ABD0 000179F0  7C 08 03 A6 */	mtlr r0
+/* 8001ABD4 000179F4  38 21 00 10 */	addi r1, r1, 0x10
+/* 8001ABD8 000179F8  4E 80 00 20 */	blr
+
+.global UnreserveEXI2Port
+UnreserveEXI2Port:
+/* 8001ABDC 000179FC  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8001ABE0 00017A00  7C 08 02 A6 */	mflr r0
+/* 8001ABE4 00017A04  3C 60 80 08 */	lis r3, gDBCommTable@ha
+/* 8001ABE8 00017A08  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8001ABEC 00017A0C  38 63 A9 E0 */	addi r3, r3, gDBCommTable@l
+/* 8001ABF0 00017A10  81 83 00 18 */	lwz r12, 0x18(r3)
+/* 8001ABF4 00017A14  7D 89 03 A6 */	mtctr r12
+/* 8001ABF8 00017A18  4E 80 04 21 */	bctrl
+/* 8001ABFC 00017A1C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8001AC00 00017A20  7C 08 03 A6 */	mtlr r0
+/* 8001AC04 00017A24  38 21 00 10 */	addi r1, r1, 0x10
+/* 8001AC08 00017A28  4E 80 00 20 */	blr
+
+.global ReserveEXI2Port
+ReserveEXI2Port:
+/* 8001AC0C 00017A2C  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8001AC10 00017A30  7C 08 02 A6 */	mflr r0
+/* 8001AC14 00017A34  3C 60 80 08 */	lis r3, gDBCommTable@ha
+/* 8001AC18 00017A38  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8001AC1C 00017A3C  38 63 A9 E0 */	addi r3, r3, gDBCommTable@l
+/* 8001AC20 00017A40  81 83 00 14 */	lwz r12, 0x14(r3)
+/* 8001AC24 00017A44  7D 89 03 A6 */	mtctr r12
+/* 8001AC28 00017A48  4E 80 04 21 */	bctrl
+/* 8001AC2C 00017A4C  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8001AC30 00017A50  7C 08 03 A6 */	mtlr r0
+/* 8001AC34 00017A54  38 21 00 10 */	addi r1, r1, 0x10
+/* 8001AC38 00017A58  4E 80 00 20 */	blr
+
+.global TRKReadUARTPoll
+TRKReadUARTPoll:
+/* 8001AC3C 00017A5C  94 21 FF E0 */	stwu r1, -0x20(r1)
+/* 8001AC40 00017A60  7C 08 02 A6 */	mflr r0
+/* 8001AC44 00017A64  3C 80 80 09 */	lis r4, gWritePos@ha
+/* 8001AC48 00017A68  90 01 00 24 */	stw r0, 0x24(r1)
+/* 8001AC4C 00017A6C  93 E1 00 1C */	stw r31, 0x1c(r1)
+/* 8001AC50 00017A70  7C 7F 1B 78 */	mr r31, r3
+/* 8001AC54 00017A74  93 C1 00 18 */	stw r30, 0x18(r1)
+/* 8001AC58 00017A78  3B C4 8A A8 */	addi r30, r4, gWritePos@l
+/* 8001AC5C 00017A7C  93 A1 00 14 */	stw r29, 0x14(r1)
+/* 8001AC60 00017A80  3B A0 00 04 */	li r29, 0x4
+/* 8001AC64 00017A84  80 7E 00 04 */	lwz r3, 0x4(r30)
+/* 8001AC68 00017A88  80 1E 00 08 */	lwz r0, 0x8(r30)
+/* 8001AC6C 00017A8C  7C 03 00 00 */	cmpw r3, r0
+/* 8001AC70 00017A90  41 80 00 74 */	blt lbl_8001ACE4
+/* 8001AC74 00017A94  3C 60 80 08 */	lis r3, gDBCommTable@ha
+/* 8001AC78 00017A98  38 00 00 00 */	li r0, 0x0
+/* 8001AC7C 00017A9C  38 63 A9 E0 */	addi r3, r3, gDBCommTable@l
+/* 8001AC80 00017AA0  90 1E 00 04 */	stw r0, 0x4(r30)
+/* 8001AC84 00017AA4  81 83 00 08 */	lwz r12, 0x8(r3)
+/* 8001AC88 00017AA8  7D 89 03 A6 */	mtctr r12
+/* 8001AC8C 00017AAC  4E 80 04 21 */	bctrl
+/* 8001AC90 00017AB0  2C 03 00 00 */	cmpwi r3, 0x0
+/* 8001AC94 00017AB4  90 7E 00 08 */	stw r3, 0x8(r30)
+/* 8001AC98 00017AB8  40 81 00 4C */	ble lbl_8001ACE4
+/* 8001AC9C 00017ABC  2C 03 11 0A */	cmpwi r3, 0x110a
+/* 8001ACA0 00017AC0  40 81 00 0C */	ble lbl_8001ACAC
+/* 8001ACA4 00017AC4  38 00 11 0A */	li r0, 0x110a
+/* 8001ACA8 00017AC8  90 1E 00 08 */	stw r0, 0x8(r30)
+lbl_8001ACAC:
+/* 8001ACAC 00017ACC  3C 80 80 08 */	lis r4, gDBCommTable@ha
+/* 8001ACB0 00017AD0  38 7E 00 10 */	addi r3, r30, 0x10
+/* 8001ACB4 00017AD4  38 A4 A9 E0 */	addi r5, r4, gDBCommTable@l
+/* 8001ACB8 00017AD8  80 9E 00 08 */	lwz r4, 0x8(r30)
+/* 8001ACBC 00017ADC  81 85 00 0C */	lwz r12, 0xc(r5)
+/* 8001ACC0 00017AE0  7D 89 03 A6 */	mtctr r12
+/* 8001ACC4 00017AE4  4E 80 04 21 */	bctrl
+/* 8001ACC8 00017AE8  7C 03 00 D0 */	neg r0, r3
+/* 8001ACCC 00017AEC  7C 00 1B 78 */	or r0, r0, r3
+/* 8001ACD0 00017AF0  7C 00 FE 71 */	srawi. r0, r0, 31
+/* 8001ACD4 00017AF4  7C 1D 03 78 */	mr r29, r0
+/* 8001ACD8 00017AF8  41 82 00 0C */	beq lbl_8001ACE4
+/* 8001ACDC 00017AFC  38 00 00 00 */	li r0, 0x0
+/* 8001ACE0 00017B00  90 1E 00 08 */	stw r0, 0x8(r30)
+lbl_8001ACE4:
+/* 8001ACE4 00017B04  80 7E 00 04 */	lwz r3, 0x4(r30)
+/* 8001ACE8 00017B08  80 1E 00 08 */	lwz r0, 0x8(r30)
+/* 8001ACEC 00017B0C  7C 03 00 00 */	cmpw r3, r0
+/* 8001ACF0 00017B10  40 80 00 1C */	bge lbl_8001AD0C
+/* 8001ACF4 00017B14  38 03 00 01 */	addi r0, r3, 0x1
+/* 8001ACF8 00017B18  7C 7E 1A 14 */	add r3, r30, r3
+/* 8001ACFC 00017B1C  90 1E 00 04 */	stw r0, 0x4(r30)
+/* 8001AD00 00017B20  3B A0 00 00 */	li r29, 0x0
+/* 8001AD04 00017B24  88 03 00 10 */	lbz r0, 0x10(r3)
+/* 8001AD08 00017B28  98 1F 00 00 */	stb r0, 0x0(r31)
+lbl_8001AD0C:
+/* 8001AD0C 00017B2C  80 01 00 24 */	lwz r0, 0x24(r1)
+/* 8001AD10 00017B30  7F A3 EB 78 */	mr r3, r29
+/* 8001AD14 00017B34  83 E1 00 1C */	lwz r31, 0x1c(r1)
+/* 8001AD18 00017B38  83 C1 00 18 */	lwz r30, 0x18(r1)
+/* 8001AD1C 00017B3C  83 A1 00 14 */	lwz r29, 0x14(r1)
+/* 8001AD20 00017B40  7C 08 03 A6 */	mtlr r0
+/* 8001AD24 00017B44  38 21 00 20 */	addi r1, r1, 0x20
+/* 8001AD28 00017B48  4E 80 00 20 */	blr
+
+.global WriteUART1
+WriteUART1:
+/* 8001AD2C 00017B4C  3C A0 80 09 */	lis r5, gWritePos@ha
+/* 8001AD30 00017B50  3C 80 80 09 */	lis r4, gWriteBuf@ha
+/* 8001AD34 00017B54  38 C5 8A A8 */	addi r6, r5, gWritePos@l
+/* 8001AD38 00017B58  80 A6 00 00 */	lwz r5, 0x0(r6)
+/* 8001AD3C 00017B5C  38 84 9B C4 */	addi r4, r4, gWriteBuf@l
+/* 8001AD40 00017B60  38 05 00 01 */	addi r0, r5, 0x1
+/* 8001AD44 00017B64  7C 64 29 AE */	stbx r3, r4, r5
+/* 8001AD48 00017B68  38 60 00 00 */	li r3, 0x0
+/* 8001AD4C 00017B6C  90 06 00 00 */	stw r0, 0x0(r6)
+/* 8001AD50 00017B70  4E 80 00 20 */	blr
+
+.global WriteUARTFlush
+WriteUARTFlush:
+/* 8001AD54 00017B74  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8001AD58 00017B78  7C 08 02 A6 */	mflr r0
+/* 8001AD5C 00017B7C  3C 60 80 09 */	lis r3, gWritePos@ha
+/* 8001AD60 00017B80  3C A0 80 09 */	lis r5, gWriteBuf@ha
+/* 8001AD64 00017B84  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8001AD68 00017B88  38 83 8A A8 */	addi r4, r3, gWritePos@l
+/* 8001AD6C 00017B8C  38 05 9B C4 */	addi r0, r5, gWriteBuf@l
+/* 8001AD70 00017B90  38 60 00 00 */	li r3, 0x0
+/* 8001AD74 00017B94  80 84 00 00 */	lwz r4, 0x0(r4)
+/* 8001AD78 00017B98  38 E0 00 00 */	li r7, 0x0
+/* 8001AD7C 00017B9C  2C 04 08 00 */	cmpwi r4, 0x800
+/* 8001AD80 00017BA0  7D 00 22 14 */	add r8, r0, r4
+/* 8001AD84 00017BA4  20 C4 08 00 */	subfic r6, r4, 0x800
+/* 8001AD88 00017BA8  40 80 00 58 */	bge lbl_8001ADE0
+/* 8001AD8C 00017BAC  54 C5 E8 FF */	srwi. r5, r6, 3
+/* 8001AD90 00017BB0  7C C0 33 78 */	mr r0, r6
+/* 8001AD94 00017BB4  7C A9 03 A6 */	mtctr r5
+/* 8001AD98 00017BB8  41 82 00 34 */	beq lbl_8001ADCC
+lbl_8001AD9C:
+/* 8001AD9C 00017BBC  98 E8 00 00 */	stb r7, 0x0(r8)
+/* 8001ADA0 00017BC0  98 E8 00 01 */	stb r7, 0x1(r8)
+/* 8001ADA4 00017BC4  98 E8 00 02 */	stb r7, 0x2(r8)
+/* 8001ADA8 00017BC8  98 E8 00 03 */	stb r7, 0x3(r8)
+/* 8001ADAC 00017BCC  98 E8 00 04 */	stb r7, 0x4(r8)
+/* 8001ADB0 00017BD0  98 E8 00 05 */	stb r7, 0x5(r8)
+/* 8001ADB4 00017BD4  98 E8 00 06 */	stb r7, 0x6(r8)
+/* 8001ADB8 00017BD8  98 E8 00 07 */	stb r7, 0x7(r8)
+/* 8001ADBC 00017BDC  39 08 00 08 */	addi r8, r8, 0x8
+/* 8001ADC0 00017BE0  42 00 FF DC */	bdnz lbl_8001AD9C
+/* 8001ADC4 00017BE4  70 C6 00 07 */	andi. r6, r6, 0x7
+/* 8001ADC8 00017BE8  41 82 00 14 */	beq lbl_8001ADDC
+lbl_8001ADCC:
+/* 8001ADCC 00017BEC  7C C9 03 A6 */	mtctr r6
+lbl_8001ADD0:
+/* 8001ADD0 00017BF0  98 E8 00 00 */	stb r7, 0x0(r8)
+/* 8001ADD4 00017BF4  39 08 00 01 */	addi r8, r8, 0x1
+/* 8001ADD8 00017BF8  42 00 FF F8 */	bdnz lbl_8001ADD0
+lbl_8001ADDC:
+/* 8001ADDC 00017BFC  7C 84 02 14 */	add r4, r4, r0
+lbl_8001ADE0:
+/* 8001ADE0 00017C00  3C A0 80 09 */	lis r5, gWritePos@ha
+/* 8001ADE4 00017C04  2C 04 00 00 */	cmpwi r4, 0x0
+/* 8001ADE8 00017C08  90 85 8A A8 */	stw r4, gWritePos@l(r5)
+/* 8001ADEC 00017C0C  41 82 00 38 */	beq lbl_8001AE24
+/* 8001ADF0 00017C10  3C 60 80 08 */	lis r3, gDBCommTable@ha
+/* 8001ADF4 00017C14  3C A0 80 09 */	lis r5, gWriteBuf@ha
+/* 8001ADF8 00017C18  38 63 A9 E0 */	addi r3, r3, gDBCommTable@l
+/* 8001ADFC 00017C1C  81 83 00 10 */	lwz r12, 0x10(r3)
+/* 8001AE00 00017C20  38 65 9B C4 */	addi r3, r5, gWriteBuf@l
+/* 8001AE04 00017C24  7D 89 03 A6 */	mtctr r12
+/* 8001AE08 00017C28  4E 80 04 21 */	bctrl
+/* 8001AE0C 00017C2C  7C A3 00 D0 */	neg r5, r3
+/* 8001AE10 00017C30  3C 80 80 09 */	lis r4, gWritePos@ha
+/* 8001AE14 00017C34  38 00 00 00 */	li r0, 0x0
+/* 8001AE18 00017C38  7C A3 1B 78 */	or r3, r5, r3
+/* 8001AE1C 00017C3C  90 04 8A A8 */	stw r0, gWritePos@l(r4)
+/* 8001AE20 00017C40  7C 63 FE 70 */	srawi r3, r3, 31
+lbl_8001AE24:
+/* 8001AE24 00017C44  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8001AE28 00017C48  7C 08 03 A6 */	mtlr r0
+/* 8001AE2C 00017C4C  38 21 00 10 */	addi r1, r1, 0x10
+/* 8001AE30 00017C50  4E 80 00 20 */	blr
+
+.global EnableEXI2Interrupts
+EnableEXI2Interrupts:
+/* 8001AE34 00017C54  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8001AE38 00017C58  7C 08 02 A6 */	mflr r0
+/* 8001AE3C 00017C5C  3C 60 80 08 */	lis r3, gDBCommTable@ha
+/* 8001AE40 00017C60  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8001AE44 00017C64  38 63 A9 E0 */	addi r3, r3, gDBCommTable@l
+/* 8001AE48 00017C68  81 83 00 04 */	lwz r12, 0x4(r3)
+/* 8001AE4C 00017C6C  7D 89 03 A6 */	mtctr r12
+/* 8001AE50 00017C70  4E 80 04 21 */	bctrl
+/* 8001AE54 00017C74  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8001AE58 00017C78  7C 08 03 A6 */	mtlr r0
+/* 8001AE5C 00017C7C  38 21 00 10 */	addi r1, r1, 0x10
+/* 8001AE60 00017C80  4E 80 00 20 */	blr
+
+.global TRKInitializeIntDrivenUART
+TRKInitializeIntDrivenUART:
+/* 8001AE64 00017C84  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8001AE68 00017C88  7C 08 02 A6 */	mflr r0
+/* 8001AE6C 00017C8C  3C 80 80 02 */	lis r4, TRKEXICallBack@ha
+/* 8001AE70 00017C90  3C 60 80 08 */	lis r3, gDBCommTable@ha
+/* 8001AE74 00017C94  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8001AE78 00017C98  38 84 AF A0 */	addi r4, r4, TRKEXICallBack@l
+/* 8001AE7C 00017C9C  81 83 A9 E0 */	lwz r12, gDBCommTable@l(r3)
+/* 8001AE80 00017CA0  7C C3 33 78 */	mr r3, r6
+/* 8001AE84 00017CA4  7D 89 03 A6 */	mtctr r12
+/* 8001AE88 00017CA8  4E 80 04 21 */	bctrl
+/* 8001AE8C 00017CAC  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8001AE90 00017CB0  38 60 00 00 */	li r3, 0x0
+/* 8001AE94 00017CB4  7C 08 03 A6 */	mtlr r0
+/* 8001AE98 00017CB8  38 21 00 10 */	addi r1, r1, 0x10
+/* 8001AE9C 00017CBC  4E 80 00 20 */	blr
+
+.global InitMetroTRKCommTable
+InitMetroTRKCommTable:
+/* 8001AEA0 00017CC0  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8001AEA4 00017CC4  7C 08 02 A6 */	mflr r0
+/* 8001AEA8 00017CC8  2C 03 00 01 */	cmpwi r3, 0x1
+/* 8001AEAC 00017CCC  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8001AEB0 00017CD0  40 82 00 74 */	bne lbl_8001AF24
+/* 8001AEB4 00017CD4  3C 60 80 07 */	lis r3, lbl_80076B80@ha
+/* 8001AEB8 00017CD8  38 63 6B 80 */	addi r3, r3, lbl_80076B80@l
+/* 8001AEBC 00017CDC  4C C6 31 82 */	crclr 6
+/* 8001AEC0 00017CE0  48 02 29 F9 */	bl OSReport
+/* 8001AEC4 00017CE4  48 02 00 8D */	bl func_8003AF50
+/* 8001AEC8 00017CE8  3D 60 80 05 */	lis r11, DBInitComm@ha
+/* 8001AECC 00017CEC  3D 20 80 05 */	lis r9, DBInitInterrupts@ha
+/* 8001AED0 00017CF0  39 6B 73 84 */	addi r11, r11, DBInitComm@l
+/* 8001AED4 00017CF4  3D 40 80 08 */	lis r10, gDBCommTable@ha
+/* 8001AED8 00017CF8  3D 00 80 05 */	lis r8, DBQueryData@ha
+/* 8001AEDC 00017CFC  3C E0 80 05 */	lis r7, DBRead@ha
+/* 8001AEE0 00017D00  3C C0 80 05 */	lis r6, DBWrite@ha
+/* 8001AEE4 00017D04  3C A0 80 05 */	lis r5, lbl_80056FA4@ha
+/* 8001AEE8 00017D08  3C 80 80 05 */	lis r4, lbl_80056FA0@ha
+/* 8001AEEC 00017D0C  95 6A A9 E0 */	stwu r11, gDBCommTable@l(r10)
+/* 8001AEF0 00017D10  39 29 73 30 */	addi r9, r9, DBInitInterrupts@l
+/* 8001AEF4 00017D14  39 08 72 94 */	addi r8, r8, DBQueryData@l
+/* 8001AEF8 00017D18  38 E7 72 08 */	addi r7, r7, DBRead@l
+/* 8001AEFC 00017D1C  38 C6 6F A8 */	addi r6, r6, DBWrite@l
+/* 8001AF00 00017D20  38 A5 6F A4 */	addi r5, r5, lbl_80056FA4@l
+/* 8001AF04 00017D24  38 04 6F A0 */	addi r0, r4, lbl_80056FA0@l
+/* 8001AF08 00017D28  91 2A 00 04 */	stw r9, 0x4(r10)
+/* 8001AF0C 00017D2C  91 0A 00 08 */	stw r8, 0x8(r10)
+/* 8001AF10 00017D30  90 EA 00 0C */	stw r7, 0xc(r10)
+/* 8001AF14 00017D34  90 CA 00 10 */	stw r6, 0x10(r10)
+/* 8001AF18 00017D38  90 AA 00 14 */	stw r5, 0x14(r10)
+/* 8001AF1C 00017D3C  90 0A 00 18 */	stw r0, 0x18(r10)
+/* 8001AF20 00017D40  48 00 00 70 */	b lbl_8001AF90
+lbl_8001AF24:
+/* 8001AF24 00017D44  3C 60 80 07 */	lis r3, lbl_80076BA4@ha
+/* 8001AF28 00017D48  38 63 6B A4 */	addi r3, r3, lbl_80076BA4@l
+/* 8001AF2C 00017D4C  4C C6 31 82 */	crclr 6
+/* 8001AF30 00017D50  48 02 29 89 */	bl OSReport
+/* 8001AF34 00017D54  48 00 0B 61 */	bl func_8001BA94
+/* 8001AF38 00017D58  3D 60 80 02 */	lis r11, lbl_8001BA6C@ha
+/* 8001AF3C 00017D5C  3D 20 80 02 */	lis r9, lbl_8001BA70@ha
+/* 8001AF40 00017D60  39 6B BA 6C */	addi r11, r11, lbl_8001BA6C@l
+/* 8001AF44 00017D64  3D 40 80 08 */	lis r10, gDBCommTable@ha
+/* 8001AF48 00017D68  3D 00 80 02 */	lis r8, lbl_8001BA74@ha
+/* 8001AF4C 00017D6C  3C E0 80 02 */	lis r7, lbl_8001BA7C@ha
+/* 8001AF50 00017D70  3C C0 80 02 */	lis r6, lbl_8001BA84@ha
+/* 8001AF54 00017D74  3C A0 80 02 */	lis r5, lbl_8001BA8C@ha
+/* 8001AF58 00017D78  3C 80 80 02 */	lis r4, lbl_8001BA90@ha
+/* 8001AF5C 00017D7C  95 6A A9 E0 */	stwu r11, gDBCommTable@l(r10)
+/* 8001AF60 00017D80  39 29 BA 70 */	addi r9, r9, lbl_8001BA70@l
+/* 8001AF64 00017D84  39 08 BA 74 */	addi r8, r8, lbl_8001BA74@l
+/* 8001AF68 00017D88  38 E7 BA 7C */	addi r7, r7, lbl_8001BA7C@l
+/* 8001AF6C 00017D8C  38 C6 BA 84 */	addi r6, r6, lbl_8001BA84@l
+/* 8001AF70 00017D90  38 A5 BA 8C */	addi r5, r5, lbl_8001BA8C@l
+/* 8001AF74 00017D94  38 04 BA 90 */	addi r0, r4, lbl_8001BA90@l
+/* 8001AF78 00017D98  91 2A 00 04 */	stw r9, 0x4(r10)
+/* 8001AF7C 00017D9C  91 0A 00 08 */	stw r8, 0x8(r10)
+/* 8001AF80 00017DA0  90 EA 00 0C */	stw r7, 0xc(r10)
+/* 8001AF84 00017DA4  90 CA 00 10 */	stw r6, 0x10(r10)
+/* 8001AF88 00017DA8  90 AA 00 14 */	stw r5, 0x14(r10)
+/* 8001AF8C 00017DAC  90 0A 00 18 */	stw r0, 0x18(r10)
+lbl_8001AF90:
+/* 8001AF90 00017DB0  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8001AF94 00017DB4  7C 08 03 A6 */	mtlr r0
+/* 8001AF98 00017DB8  38 21 00 10 */	addi r1, r1, 0x10
+/* 8001AF9C 00017DBC  4E 80 00 20 */	blr
+
+.global TRKEXICallBack
+TRKEXICallBack:
+/* 8001AFA0 00017DC0  94 21 FF F0 */	stwu r1, -0x10(r1)
+/* 8001AFA4 00017DC4  7C 08 02 A6 */	mflr r0
+/* 8001AFA8 00017DC8  90 01 00 14 */	stw r0, 0x14(r1)
+/* 8001AFAC 00017DCC  93 E1 00 0C */	stw r31, 0xc(r1)
+/* 8001AFB0 00017DD0  7C 9F 23 78 */	mr r31, r4
+/* 8001AFB4 00017DD4  48 02 6B D1 */	bl OSEnableScheduler
+/* 8001AFB8 00017DD8  7F E3 FB 78 */	mr r3, r31
+/* 8001AFBC 00017DDC  38 80 05 00 */	li r4, 0x500
+/* 8001AFC0 00017DE0  4B FF FB 6D */	bl TRKLoadContext
+/* 8001AFC4 00017DE4  80 01 00 14 */	lwz r0, 0x14(r1)
+/* 8001AFC8 00017DE8  83 E1 00 0C */	lwz r31, 0xc(r1)
+/* 8001AFCC 00017DEC  7C 08 03 A6 */	mtlr r0
+/* 8001AFD0 00017DF0  38 21 00 10 */	addi r1, r1, 0x10
+/* 8001AFD4 00017DF4  4E 80 00 20 */	blr
+
+
+.section .rodata, "wa"  # 0x800764E0 - 0x80079C60 ; 0x00003780
+
+.balign 8
+
+.global lbl_80076B80
+lbl_80076B80:
+
+	# ROM: 0x73B80
+	.asciz "MetroTRK : Set to GDEV hardware\n"
+	.balign 4
+
+.global lbl_80076BA4
+lbl_80076BA4:
+
+	# ROM: 0x73BA4
+	.asciz "MetroTRK : Set to AMC DDH hardware\n"
+
+
+.section .data, "wa"  # 0x80079C60 - 0x80085B20 ; 0x0000BEC0
+
+.balign 8
+
+.global gDBCommTable
+gDBCommTable:
+
+	# ROM: 0x779E0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+	.4byte 0
+
+
+.section .bss, "", @nobits  # 0x80085B20 - 0x800C3E60 ; 0x0003E340
+
+.balign 8
+
+.global gWritePos
+gWritePos:
+	.skip 0x4
+
+.global gReadPos
+gReadPos:
+	.skip 0x4
+
+.global gReadCount
+gReadCount:
+	.skip 0x4
+
+.global _MetroTRK_Has_Framing
+_MetroTRK_Has_Framing:
+	.skip 0x4
+
+.global gReadBuf
+gReadBuf:
+	.skip 0x110A
+	.balign 4
+
+.global gWriteBuf
+gWriteBuf:
+	.skip 0x110A
+	.balign 4
