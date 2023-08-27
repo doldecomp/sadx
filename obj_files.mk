@@ -1,6 +1,6 @@
 INIT_O_FILES := \
 	$(BUILD_DIR)/libs/Runtime/asm/__mem.o \
-	$(BUILD_DIR)/libs/MetroTRK/asm/mem_TRK.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/mem_TRK_init.o \
 	$(BUILD_DIR)/libs/MetroTRK/asm/__exception.o \
 	$(BUILD_DIR)/libs/Dolphin/OS/asm/__start.o \
 	$(BUILD_DIR)/libs/Dolphin/OS/asm/__ppc_eabi_init.o
@@ -38,6 +38,7 @@ MSL_C_O_FILES := \
 	$(BUILD_DIR)/libs/MSL_C/asm/MSL_Common/misc_io.o \
 	$(BUILD_DIR)/libs/MSL_C/asm/MSL_Common/printf.o \
 	$(BUILD_DIR)/libs/MSL_C/asm/MSL_Common/rand.o \
+	$(BUILD_DIR)/libs/MSL_C/asm/MSL_Common/float.o \
 	$(BUILD_DIR)/libs/MSL_C/asm/MSL_Common/scanf.o \
 	$(BUILD_DIR)/libs/MSL_C/asm/MSL_Common/signal.o \
 	$(BUILD_DIR)/libs/MSL_C/asm/MSL_Common/string.o \
@@ -74,6 +75,56 @@ MSL_C_O_FILES := \
 	$(BUILD_DIR)/libs/MSL_C/asm/MSL_Common_Embedded/Math/Double_precision/w_log10.o \
 	$(BUILD_DIR)/libs/MSL_C/asm/MSL_Common_Embedded/Math/Double_precision/w_pow.o \
 	$(BUILD_DIR)/libs/MSL_C/asm/PPC_EABI/math_ppc.o
+
+TRK_O_FILES := \
+	$(BUILD_DIR)/libs/MetroTRK/asm/mainloop.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/nubevent.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/nubinit.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/msg.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/msgbuf.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/serpoll.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/usr_put.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/dispatch.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/msghndlr.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/support.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/mutex_TRK.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/notify.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/flush_cache.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/mem_TRK.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/targimpl.o \
+	$(BUILD_DIR)/libs/MetroTRK/src/targsupp.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/dolphin_trk.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/mpc_7xx_603e.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/main_TRK.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/dolphin_trk_glue.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/targcont.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/target_options.o \
+	$(BUILD_DIR)/libs/MetroTRK/asm/mslsupp.o
+
+DOLPHIN_O_FILES := \
+	$(BUILD_DIR)/libs/Dolphin/AI/asm/ai.o \
+	\
+	$(BUILD_DIR)/libs/Dolphin/AMCStubs/asm/AmcExi2Stubs.o \
+	\
+	$(BUILD_DIR)/libs/Dolphin/AR/asm/ar.o \
+	$(BUILD_DIR)/libs/Dolphin/AR/asm/arq.o \
+	\
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/AX.o \
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/AXAlloc.o \
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/AXAux.o \
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/AXCL.o \
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/AXOut.o \
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/AXSPB.o \
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/AXVPB.o \
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/AXProf.o \
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/AXComp.o \
+	$(BUILD_DIR)/libs/Dolphin/AX/asm/DSPCode.o \
+	\
+	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/reverb_hi.o \
+	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/reverb_std.o \
+	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/chorus.o \
+	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/delay.o \
+	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/axfx.o
 
 EXTAB_O_FILES := $(BUILD_DIR)/asm/extab_.o
 

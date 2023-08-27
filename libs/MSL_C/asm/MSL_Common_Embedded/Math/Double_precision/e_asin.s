@@ -22,8 +22,8 @@ __ieee754_asin:
 /* 80010F6C 0000DD8C  FC 22 00 7A */	fmadd f1, f2, f1, f0
 /* 80010F70 0000DD90  48 00 02 20 */	b lbl_80011190
 lbl_80010F74:
-/* 80010F74 0000DD94  3C 60 80 0C */	lis r3, lbl_800C3E98@ha
-/* 80010F78 0000DD98  C0 23 3E 98 */	lfs f1, lbl_800C3E98@l(r3)
+/* 80010F74 0000DD94  3C 60 80 0C */	lis r3, __float_nan@ha
+/* 80010F78 0000DD98  C0 23 3E 98 */	lfs f1, __float_nan@l(r3)
 /* 80010F7C 0000DD9C  48 00 02 14 */	b lbl_80011190
 lbl_80010F80:
 /* 80010F80 0000DDA0  3C 00 3F E0 */	lis r0, 0x3fe0
@@ -124,12 +124,12 @@ lbl_800110E0:
 lbl_800110EC:
 /* 800110EC 0000DF0C  FC 02 08 00 */	fcmpu cr0, f2, f1
 /* 800110F0 0000DF10  41 82 00 10 */	beq lbl_80011100
-/* 800110F4 0000DF14  3C 60 80 0C */	lis r3, lbl_800C3E98@ha
-/* 800110F8 0000DF18  C0 23 3E 98 */	lfs f1, lbl_800C3E98@l(r3)
+/* 800110F4 0000DF14  3C 60 80 0C */	lis r3, __float_nan@ha
+/* 800110F8 0000DF18  C0 23 3E 98 */	lfs f1, __float_nan@l(r3)
 /* 800110FC 0000DF1C  48 00 00 0C */	b lbl_80011108
 lbl_80011100:
-/* 80011100 0000DF20  3C 60 80 0C */	lis r3, lbl_800C3E9C@ha
-/* 80011104 0000DF24  C0 23 3E 9C */	lfs f1, lbl_800C3E9C@l(r3)
+/* 80011100 0000DF20  3C 60 80 0C */	lis r3, __float_huge@ha
+/* 80011104 0000DF24  C0 23 3E 9C */	lfs f1, __float_huge@l(r3)
 lbl_80011108:
 /* 80011108 0000DF28  3C 60 3F EF */	lis r3, 0x3fef
 /* 8001110C 0000DF2C  38 03 33 33 */	addi r0, r3, 0x3333
