@@ -5,29 +5,6 @@
 
 .balign 8
 
-.global lbl_800C3EF0
-lbl_800C3EF0:
-
-	# ROM: 0x82BB0
-	.4byte lbl_8007ED90
-	.balign 8
-	
-	# split
-
-.global lbl_800C3EF8
-lbl_800C3EF8:
-
-	# ROM: 0x82BB8
-	.4byte 0x00000001
-	.4byte 0
-
-.global lbl_800C3F00
-lbl_800C3F00:
-
-	# ROM: 0x82BC0
-	.4byte 0xFFFF0000
-	.4byte 0
-
 .global lbl_800C3F08
 lbl_800C3F08:
 

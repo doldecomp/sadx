@@ -5,16 +5,6 @@
 
 .balign 8
 
-.balign 32
-
-.global lbl_800A3D40
-lbl_800A3D40:
-	.skip 0x220
-
-.global lbl_800A3F60
-lbl_800A3F60:
-	.skip 0x20
-
 .global CommandList
 CommandList:
 	.skip 0x3C

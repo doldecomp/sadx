@@ -124,7 +124,26 @@ DOLPHIN_O_FILES := \
 	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/reverb_std.o \
 	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/chorus.o \
 	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/delay.o \
-	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/axfx.o
+	$(BUILD_DIR)/libs/Dolphin/AXFX/asm/axfx.o \
+	\
+	$(BUILD_DIR)/libs/Dolphin/BASE/asm/PPCArch.o \
+	\
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDBios.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDUnlock.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDRdwr.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDBlock.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDDir.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDCheck.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDMount.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDFormat.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDOpen.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDCreate.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDRead.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDWrite.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDDelete.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDStat.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDStatEx.o \
+	$(BUILD_DIR)/libs/Dolphin/CARD/asm/CARDNet.o
 
 EXTAB_O_FILES := $(BUILD_DIR)/asm/extab_.o
 

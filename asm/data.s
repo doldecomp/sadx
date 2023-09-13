@@ -5,146 +5,6 @@
 
 .balign 8
 
-.global lbl_8007ED90
-lbl_8007ED90:
-
-	# ROM: 0x7BD90
-	.asciz "<< Dolphin SDK - CARD\trelease build: Sep  5 2002 05:35:20 (0x2301) >>"
-	.balign 4
-
-.global lbl_8007EDD8
-lbl_8007EDD8:
-
-	# ROM: 0x7BDD8
-	.4byte OnReset_1
-	.4byte 0x0000007F
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-
-.global lbl_8007EE00
-lbl_8007EE00:
-
-	# ROM: 0x7BE00
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0x00000021
-	.4byte 0x02FF0021
-	.4byte 0x13061203
-	.4byte 0x12041305
-	.4byte 0x009200FF
-	.4byte 0x0088FFFF
-	.4byte 0x0089FFFF
-	.4byte 0x008AFFFF
-	.4byte 0x008BFFFF
-	.4byte 0x8F0002BF
-	.4byte 0x008816FC
-	.4byte 0xDCD116FD
-	.4byte 0x000016FB
-	.4byte 0x000102BF
-	.4byte 0x008E25FF
-	.4byte 0x0380FF00
-	.4byte 0x02940027
-	.4byte 0x02BF008E
-	.4byte 0x1FDF24FF
-	.4byte 0x02400FFF
-	.4byte 0x00980400
-	.4byte 0x009A0010
-	.4byte 0x00990000
-	.4byte 0x8E0002BF
-	.4byte 0x009402BF
-	.4byte 0x864402BF
-	.4byte 0x008816FC
-	.4byte 0xDCD116FD
-	.4byte 0x000316FB
-	.4byte 0x00018F00
-	.4byte 0x02BF008E
-	.4byte 0x0380CDD1
-	.4byte 0x02940048
-	.4byte 0x27FF0380
-	.4byte 0x00010295
-	.4byte 0x005A0380
-	.4byte 0x00020295
-	.4byte 0x8000029F
-	.4byte 0x00480021
-	.4byte 0x8E0002BF
-	.4byte 0x008E25FF
-	.4byte 0x02BF008E
-	.4byte 0x25FF02BF
-	.4byte 0x008E25FF
-	.4byte 0x02BF008E
-	.4byte 0x00C5FFFF
-	.4byte 0x03400FFF
-	.4byte 0x1C9F02BF
-	.4byte 0x008E00C7
-	.4byte 0xFFFF02BF
-	.4byte 0x008E00C6
-	.4byte 0xFFFF02BF
-	.4byte 0x008E00C0
-	.4byte 0xFFFF02BF
-	.4byte 0x008E20FF
-	.4byte 0x03400FFF
-	.4byte 0x1F5F02BF
-	.4byte 0x008E21FF
-	.4byte 0x02BF008E
-	.4byte 0x23FF1205
-	.4byte 0x1206029F
-	.4byte 0x80B50021
-	.4byte 0x27FC03C0
-	.4byte 0x8000029D
-	.4byte 0x008802DF
-	.4byte 0x27FE03C0
-	.4byte 0x8000029C
-	.4byte 0x008E02DF
-	.4byte 0x2ECE2CCF
-	.4byte 0x00F8FFCD
-	.4byte 0x00F9FFC9
-	.4byte 0x00FAFFCB
-	.4byte 0x26C902C0
-	.4byte 0x0004029D
-	.4byte 0x009C02DF
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-	.4byte 0
-
-.global lbl_8007EF60
-lbl_8007EF60:
-
-	# ROM: 0x7BF60
-	.4byte 0x00002000
-	.4byte 0x00004000
-	.4byte 0x00008000
-	.4byte 0x00010000
-	.4byte 0x00020000
-	.4byte 0x00040000
-	.balign 16
-
-.global lbl_8007EF80
-lbl_8007EF80:
-
-	# ROM: 0x7BF80
-	.4byte 0x00000004
-	.4byte 0x00000008
-	.4byte 0x00000010
-	.4byte 0x00000020
-	.4byte 0x00000040
-	.4byte 0x00000080
-	.4byte 0x00000100
-	.4byte 0x00000200
-
 .global lbl_8007EFA0
 lbl_8007EFA0:
 
@@ -2735,8 +2595,8 @@ lbl_80082208:
 	.asciz "OSUnlink: unknown relocation type %3d\n"
 	.balign 4
 
-.global ResetFunctionInfo
-ResetFunctionInfo:
+.global ResetFunctionInfo_2
+ResetFunctionInfo_2:
 
 	# ROM: 0x7F230
 	.4byte OnReset_2

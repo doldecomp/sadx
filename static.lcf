@@ -39,4 +39,10 @@ FORCEACTIVE
 	asin
 	atan2
 	log
+	CARDFormat
+	CARDCreate
+	CARDWriteAsync
+	CARDDelete
+	CARDGetStatus
+	CARDGetSerialNo
 }

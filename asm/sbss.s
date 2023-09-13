@@ -5,13 +5,6 @@
 
 .balign 8
 
-.global lbl_800C4248
-lbl_800C4248:
-	.skip 0x2
-	.balign 8
-	
-	# split
-
 .global __DBInterface
 __DBInterface:
 	.skip 0x4
