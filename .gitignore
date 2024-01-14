@@ -1,26 +1,13 @@
-# Compiler binaries
-tools/mwcc_compiler/
-
-# Build artifacts
-*.dol
-*.rel
-*.elf
-*.plf
-*.o
-*.dep
-*.map
-build/
-
-# Tool binaries
-tools/elf2dol
-tools/elf2rel
-tools/lzss
-*.exe
-
-# Temporary files
-*.sw*
-*.dump
 __pycache__
-*.bat
-errors.txt
-output.asm
+.idea
+.vscode
+.ninja_*
+*.exe
+build
+build.ninja
+objdiff.json
+orig/*/*
+!orig/*/.gitkeep
+tools/mwcc_compiler/*
+!tools/mwcc_compiler/.gitkeep
+/*.txt

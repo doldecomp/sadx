@@ -1,0 +1,1 @@
+- README based off zeldaret/tww, PrimeDecomp/echoes and InputEvelution/wp
