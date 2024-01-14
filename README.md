@@ -64,7 +64,7 @@ Building
   - To save space, the only necessary files are the following. Any others can be deleted.
     - `sys/main.dol`
     - `files/*.rel`
-- (Non-Preview versions only) Using [Sonic Adventure Toolset](https://github.com/X-Hax/sa_tools), drag and drop the .rel files starting with an underscore (`_Main.rel` etc.) onto ArchiveTool.exe (found in the bin folder of SA Tools). This generates decompressed versions of the rels which are necessary for disassembly.
+- (Non-Preview versions only) Using [Sonic Adventure Toolset](https://github.com/X-Hax/sa_tools), drag and drop the .rel files starting with an underscore (`_Main.rel` etc.) onto ArchiveTool.exe (found in the bin folder of SA Tools). This generates decompressed versions of the rels which are necessary for disassembly. The original rels should be deleted afterwards, and the new `_dec` rels renamed to their precedessors filenames.
 - Configure:
   ```
   python configure.py
