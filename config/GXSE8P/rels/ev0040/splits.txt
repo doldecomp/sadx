@@ -1,0 +1,4 @@
+Sections:
+	.text       type:code align:8
+	.rodata     type:rodata align:8
+	.data       type:data align:8

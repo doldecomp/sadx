@@ -1,0 +1,15 @@
+fn_263_0 = .text:0x00000000; // type:function size:0x17C
+lbl_263_rodata_10 = .rodata:0x00000010; // type:object size:0x4 data:float
+lbl_263_rodata_14 = .rodata:0x00000014; // type:object size:0x4 data:float
+lbl_263_rodata_18 = .rodata:0x00000018; // type:object size:0x4 data:float
+lbl_263_rodata_1C = .rodata:0x0000001C; // type:object size:0x4 data:float
+lbl_263_rodata_20 = .rodata:0x00000020; // type:object size:0x4 data:float
+lbl_263_rodata_24 = .rodata:0x00000024; // type:object size:0x4 data:float
+lbl_263_rodata_28 = .rodata:0x00000028; // type:object size:0x4 data:float
+lbl_263_rodata_2C = .rodata:0x0000002C; // type:object size:0x4 data:float
+lbl_263_rodata_30 = .rodata:0x00000030; // type:object size:0x4 data:float
+lbl_263_rodata_34 = .rodata:0x00000034; // type:object size:0x4 data:float
+lbl_263_rodata_38 = .rodata:0x00000038; // type:object size:0x4 data:float
+lbl_263_rodata_3C = .rodata:0x0000003C; // type:object size:0x4 data:float
+lbl_263_data_0 = .data:0x00000000; // type:object size:0x8
+lbl_263_data_8 = .data:0x00000008; // type:object size:0x8
