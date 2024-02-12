@@ -1,1 +1,2 @@
 - README based off zeldaret/tww, PrimeDecomp/echoes and InputEvelution/wp
+- Runtime from PrimeDecomp/prime and xbret/xenoblade

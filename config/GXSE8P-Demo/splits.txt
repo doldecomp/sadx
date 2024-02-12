@@ -479,3 +479,8 @@ Dolphin/CARD/CARDStat.c:
 Dolphin/CARD/CARDNet.c:
 	.text       start:0x800277BC end:0x80027880
 	.sdata      start:0x800BAB38 end:0x800BAB40
+
+Dolphin/DB/db.c:
+	.text       start:0x80027880 end:0x8002796C
+	.data       start:0x80076D20 end:0x80076D38
+	.sbss       start:0x800BAE70 end:0x800BAE78
