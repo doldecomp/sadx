@@ -433,6 +433,14 @@ config.libs = [
             Object(NonMatching, "Dolphin/DB/db.c"),
         ],
     ),
+    DolphinLib(
+        "dsp",
+        [
+            Object(NonMatching, "Dolphin/DSP/dsp.c"),
+            Object(NonMatching, "Dolphin/DSP/dsp_debug.c"),
+            Object(NonMatching, "Dolphin/DSP/dsp_task.c"),
+        ],
+    ),
     # TODO: RELs
 ]
 

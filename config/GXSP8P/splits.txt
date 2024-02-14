@@ -528,3 +528,17 @@ Dolphin/DB/db.c:
 	.text       start:0x80029CE8 end:0x80029DD4
 	.data       start:0x8007F5A0 end:0x8007F5B8
 	.sbss       start:0x800C4810 end:0x800C4818
+
+Dolphin/DSP/dsp.c:
+	.text       start:0x80029DD4 end:0x8002A024
+	.data       start:0x8007F5B8 end:0x8007F638
+	.sdata      start:0x800C44C8 end:0x800C44D0
+	.sbss       start:0x800C4818 end:0x800C4820
+
+Dolphin/DSP/dsp_debug.c:
+	.text       start:0x8002A024 end:0x8002A074
+
+Dolphin/DSP/dsp_task.c:
+	.text       start:0x8002A074 end:0x8002A8F8
+	.data       start:0x8007F638 end:0x8007F778
+	.sbss       start:0x800C4820 end:0x800C4838
