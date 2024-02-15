@@ -58,9 +58,9 @@ Building
   git clone https://github.com/doldecomp/sadx.git
   ```
 - (Demo versions only) Using [Dolphin Emulator](https://dolphin-emu.org/), extract the relevant .tgc file to your games directory for Dolphin (`zz_sonic_game.tgc` for NTSC-U Demo, `sonic_trial.tgc` for NTSC-J Demo, `zz_SonicAdv.tgc` for PAL Demo).
-![](assets/dolphin-extract-demo.png)
+![](assets/dolphin-extract-demo.PNG)
 - Still using Dolphin, extract your game to `orig/GXSE8P` (or `GASJ8P` for NTSC-J Retail, `GXSP8P` for PAL, etc.).  
-![](assets/dolphin-extract.png)
+![](assets/dolphin-extract.PNG)
   - To save space, the only necessary files are the following. Any others can be deleted.
     - `sys/main.dol`
     - `files/*.rel`
