@@ -133,7 +133,7 @@ if not is_windows():
 # Tool versions
 config.binutils_tag = "2.41-1"
 config.compilers_tag = "20231018"
-config.dtk_tag = "v0.7.1"
+config.dtk_tag = "v0.7.3"
 config.sjiswrap_tag = "v1.1.1"
 config.wibo_tag = "0.5.1"
 
@@ -250,13 +250,13 @@ config.libs = [
         "cflags": cflags_runtime,
         "host": False,
         "objects": [
-            Object(NonMatching, "Runtime.PPCEABI.H/__va_arg.c"),
+            Object(Matching, "Runtime.PPCEABI.H/__va_arg.c"),
             Object(Matching, "Runtime.PPCEABI.H/global_destructor_chain.c"),
-            Object(NonMatching, "Runtime.PPCEABI.H/__mem.c"),
+            Object(Matching, "Runtime.PPCEABI.H/__mem.c"),
             Object(NonMatching, "Runtime.PPCEABI.H/New.cp"),
             Object(NonMatching, "Runtime.PPCEABI.H/NewMore.cp"),
             Object(NonMatching, "Runtime.PPCEABI.H/NMWException.cp"),
-            Object(NonMatching, "Runtime.PPCEABI.H/runtime.c"),
+            Object(Matching, "Runtime.PPCEABI.H/runtime.c"),
             Object(Matching, "Runtime.PPCEABI.H/__init_cpp_exceptions.cpp"),
             Object(NonMatching, "Runtime.PPCEABI.H/Gecko_ExceptionPPC.cp"),
             Object(NonMatching, "Runtime.PPCEABI.H/GCN_mem_alloc.c"),
@@ -425,6 +425,20 @@ config.libs = [
             Object(NonMatching, "Dolphin/CARD/CARDStat.c"),
             Object(NonMatching, "Dolphin/CARD/CARDStatEx.c"),
             Object(NonMatching, "Dolphin/CARD/CARDNet.c"),
+        ],
+    ),
+    DolphinLib(
+        "db",
+        [
+            Object(NonMatching, "Dolphin/DB/db.c"),
+        ],
+    ),
+    DolphinLib(
+        "dsp",
+        [
+            Object(NonMatching, "Dolphin/DSP/dsp.c"),
+            Object(NonMatching, "Dolphin/DSP/dsp_debug.c"),
+            Object(NonMatching, "Dolphin/DSP/dsp_task.c"),
         ],
     ),
     # TODO: RELs

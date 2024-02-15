@@ -523,3 +523,22 @@ Dolphin/CARD/CARDStatEx.c:
 Dolphin/CARD/CARDNet.c:
 	.text       start:0x800299FC end:0x80029B38
 	.sdata      start:0x800C3F00 end:0x800C3F08
+
+Dolphin/DB/db.c:
+	.text       start:0x80029B38 end:0x80029C24
+	.data       start:0x8007EFA0 end:0x8007EFB8
+	.sbss       start:0x800C4250 end:0x800C4258
+
+Dolphin/DSP/dsp.c:
+	.text       start:0x80029C24 end:0x80029E74
+	.data       start:0x8007EFB8 end:0x8007F038
+	.sdata      start:0x800C3F08 end:0x800C3F10
+	.sbss       start:0x800C4258 end:0x800C4260
+
+Dolphin/DSP/dsp_debug.c:
+	.text       start:0x80029E74 end:0x80029EC4
+
+Dolphin/DSP/dsp_task.c:
+	.text       start:0x80029EC4 end:0x8002A748
+	.data       start:0x8007F038 end:0x8007F178
+	.sbss       start:0x800C4260 end:0x800C4278
