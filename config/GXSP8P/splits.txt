@@ -1,17 +1,17 @@
 Sections:
-	.init       type:code
-	extab       type:rodata
-	extabindex  type:rodata
-	.text       type:code
-	.ctors      type:rodata
-	.dtors      type:rodata
-	.rodata     type:rodata
-	.data       type:data
-	.bss        type:bss
-	.sdata      type:data
-	.sbss       type:bss
-	.sdata2     type:rodata
-	.sbss2      type:bss
+	.init       type:code align:4
+	extab       type:rodata align:4
+	extabindex  type:rodata align:8
+	.text       type:code align:4
+	.ctors      type:rodata align:16
+	.dtors      type:rodata align:32
+	.rodata     type:rodata align:32
+	.data       type:data align:32
+	.bss        type:bss align:32
+	.sdata      type:data align:4
+	.sbss       type:bss align:16
+	.sdata2     type:rodata align:32
+	.sbss2      type:bss align:4
 
 Runtime.PPCEABI.H/__va_arg.c:
 	.text       start:0x80006714 end:0x800067DC
@@ -542,3 +542,44 @@ Dolphin/DSP/dsp_task.c:
 	.text       start:0x8002A074 end:0x8002A8F8
 	.data       start:0x8007F638 end:0x8007F778
 	.sbss       start:0x800C4820 end:0x800C4838
+
+Dolphin/DVD/dvdlow.c:
+	.text       start:0x8002A8F8 end:0x8002B738
+	.bss        start:0x800A4540 end:0x800A4620
+	.sdata      start:0x800C44D0 end:0x800C44D8
+	.sbss       start:0x800C4838 end:0x800C4880
+
+Dolphin/DVD/dvdfs.c:
+	.text       start:0x8002B738 end:0x8002C00C
+	.data       start:0x8007F778 end:0x8007F8E0
+	.sdata      start:0x800C44D8 end:0x800C44E0
+	.sbss       start:0x800C4880 end:0x800C48A0
+
+Dolphin/DVD/dvd.c:
+	.text       start:0x8002C00C end:0x8002E708
+	.data       start:0x8007F8E0 end:0x8007FA60
+	.bss        start:0x800A4620 end:0x800A46B8
+	.sdata      start:0x800C44E0 end:0x800C44F8
+	.sbss       start:0x800C48A0 end:0x800C48E8
+
+Dolphin/DVD/dvdqueue.c:
+	.text       start:0x8002E708 end:0x8002E900
+	.bss        start:0x800A46B8 end:0x800A46D8
+
+Dolphin/DVD/dvderror.c:
+	.text       start:0x8002E900 end:0x8002EA98
+	.data       start:0x8007FA60 end:0x8007FAA8
+
+Dolphin/DVD/dvdidutils.c:
+	.text       start:0x8002EA98 end:0x8002EB90
+
+Dolphin/DVD/dvdFatal.c:
+	.text       start:0x8002EB90 end:0x8002EBC0
+	.sbss       start:0x800C48E8 end:0x800C48F0
+
+Dolphin/DVD/fstload.c:
+	.text       start:0x8002EBC0 end:0x8002EE00
+	.data       start:0x8007FAA8 end:0x8007FB18
+	.bss        start:0x800A46D8 end:0x800A4748
+	.sdata      start:0x800C44F8 end:0x800C4508
+	.sbss       start:0x800C48F0 end:0x800C4900

@@ -1,14 +1,14 @@
 Sections:
-	.init       type:code
-	.text       type:code
-	.ctors      type:rodata
-	.dtors      type:rodata
-	.rodata     type:rodata
-	.data       type:data
-	.bss        type:bss
-	.sdata      type:data
-	.sbss       type:bss
-	.sdata2     type:rodata
+	.init       type:code align:4
+	.text       type:code align:4
+	.ctors      type:rodata align:32
+	.dtors      type:rodata align:32
+	.rodata     type:rodata align:32
+	.data       type:data align:32
+	.bss        type:bss align:32
+	.sdata      type:data align:8
+	.sbss       type:bss align:16
+	.sdata2     type:rodata align:16
 
 Runtime.PPCEABI.H/__va_arg.c:
 	.text       start:0x80006370 end:0x80006438
@@ -498,3 +498,44 @@ Dolphin/DSP/dsp_task.c:
 	.text       start:0x80027CFC end:0x80028580
 	.data       start:0x80077418 end:0x80077558
 	.sbss       start:0x800BB4E0 end:0x800BB4F8
+
+Dolphin/DVD/dvdlow.c:
+	.text       start:0x80028580 end:0x800293C0
+	.bss        start:0x8009BB60 end:0x8009BC40
+	.sdata      start:0x800BB1A8 end:0x800BB1B0
+	.sbss       start:0x800BB4F8 end:0x800BB540
+
+Dolphin/DVD/dvdfs.c:
+	.text       start:0x800293C0 end:0x80029C94
+	.data       start:0x80077558 end:0x800776C0
+	.sdata      start:0x800BB1B0 end:0x800BB1B8
+	.sbss       start:0x800BB540 end:0x800BB560
+
+Dolphin/DVD/dvd.c:
+	.text       start:0x80029C94 end:0x8002C390
+	.data       start:0x800776C0 end:0x80077840
+	.bss        start:0x8009BC40 end:0x8009BCD8
+	.sdata      start:0x800BB1B8 end:0x800BB1D0
+	.sbss       start:0x800BB560 end:0x800BB5A8
+
+Dolphin/DVD/dvdqueue.c:
+	.text       start:0x8002C390 end:0x8002C588
+	.bss        start:0x8009BCD8 end:0x8009BCF8
+
+Dolphin/DVD/dvderror.c:
+	.text       start:0x8002C588 end:0x8002C720
+	.data       start:0x80077840 end:0x80077888
+
+Dolphin/DVD/dvdidutils.c:
+	.text       start:0x8002C720 end:0x8002C818
+
+Dolphin/DVD/dvdFatal.c:
+	.text       start:0x8002C818 end:0x8002C848
+	.sbss       start:0x800BB5A8 end:0x800BB5B0
+
+Dolphin/DVD/fstload.c:
+	.text       start:0x8002C848 end:0x8002CA88
+	.data       start:0x80077888 end:0x800778F8
+	.bss        start:0x8009BCF8 end:0x8009BD68
+	.sdata      start:0x800BB1D0 end:0x800BB1E0
+	.sbss       start:0x800BB5B0 end:0x800BB5C0

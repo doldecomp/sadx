@@ -1,15 +1,15 @@
 Sections:
-	.init       type:code
-	.text       type:code
-	.ctors      type:rodata
-	.dtors      type:rodata
-	.rodata     type:rodata
-	.data       type:data
-	.bss        type:bss
-	.sdata      type:data
-	.sbss       type:bss
-	.sdata2     type:rodata
-	.sbss2      type:bss
+	.init       type:code align:4
+	.text       type:code align:32
+	.ctors      type:rodata align:32
+	.dtors      type:rodata align:32
+	.rodata     type:rodata align:32
+	.data       type:data align:32
+	.bss        type:bss align:32
+	.sdata      type:data align:8
+	.sbss       type:bss align:16
+	.sdata2     type:rodata align:16
+	.sbss2      type:bss align:32
 
 Runtime.PPCEABI.H/__va_arg.c:
 	.text       start:0x80006564 end:0x8000662C
@@ -499,3 +499,44 @@ Dolphin/DSP/dsp_task.c:
 	.text       start:0x80027EEC end:0x80028770
 	.data       start:0x80077AF8 end:0x80077C38
 	.sbss       start:0x800BBB80 end:0x800BBB98
+
+Dolphin/DVD/dvdlow.c:
+	.text       start:0x80028770 end:0x800295B0
+	.bss        start:0x8009C200 end:0x8009C2E0
+	.sdata      start:0x800BB848 end:0x800BB850
+	.sbss       start:0x800BBB98 end:0x800BBBE0
+
+Dolphin/DVD/dvdfs.c:
+	.text       start:0x800295B0 end:0x80029E84
+	.data       start:0x80077C38 end:0x80077DA0
+	.sdata      start:0x800BB850 end:0x800BB858
+	.sbss       start:0x800BBBE0 end:0x800BBC00
+
+Dolphin/DVD/dvd.c:
+	.text       start:0x80029E84 end:0x8002C580
+	.data       start:0x80077DA0 end:0x80077F20
+	.bss        start:0x8009C2E0 end:0x8009C378
+	.sdata      start:0x800BB858 end:0x800BB870
+	.sbss       start:0x800BBC00 end:0x800BBC48
+
+Dolphin/DVD/dvdqueue.c:
+	.text       start:0x8002C580 end:0x8002C778
+	.bss        start:0x8009C378 end:0x8009C398
+
+Dolphin/DVD/dvderror.c:
+	.text       start:0x8002C778 end:0x8002C910
+	.data       start:0x80077F20 end:0x80077F68
+
+Dolphin/DVD/dvdidutils.c:
+	.text       start:0x8002C910 end:0x8002CA08
+
+Dolphin/DVD/dvdFatal.c:
+	.text       start:0x8002CA08 end:0x8002CA38
+	.sbss       start:0x800BBC48 end:0x800BBC50
+
+Dolphin/DVD/fstload.c:
+	.text       start:0x8002CA38 end:0x8002CC78
+	.data       start:0x80077F68 end:0x80077FD8
+	.bss        start:0x8009C398 end:0x8009C408
+	.sdata      start:0x800BB870 end:0x800BB880
+	.sbss       start:0x800BBC50 end:0x800BBC60
