@@ -189,7 +189,10 @@ cflags_runtime = [
     *cflags_base,
     "-use_lmw_stmw on",
     "-str reuse,pool,readonly",
+    "-gccinc",
+    "-common off",
     "-inline deferred,auto",
+    "-char signed",
 ]
 
 # Dolphin library flags
@@ -246,7 +249,7 @@ config.warn_missing_source = False
 config.libs = [
     {
         "lib": "Runtime.PPCEABI.H",
-        "mw_version": "GC/1.3.2",
+        "mw_version": "GC/1.3",
         "cflags": cflags_runtime,
         "host": False,
         "objects": [
@@ -264,15 +267,15 @@ config.libs = [
     },
     {
         "lib": "MSL_C.PPCEABI.bare.H",
-        "mw_version": "GC/1.3.2",
+        "mw_version": "GC/1.3",
         "cflags": cflags_runtime,
         "host": False,
         "objects": [
             Object(NonMatching, "MSL_C.PPCEABI.bare.H/PPC_EABI/abort_exit.c"),
-            Object(NonMatching, "MSL_C.PPCEABI.bare.H/MSL_Common/alloc.c"),
-            Object(NonMatching, "MSL_C.PPCEABI.bare.H/MSL_Common/errno.c"),
+            Object(NonMatching, "MSL_C.PPCEABI.bare.H/MSL_Common/alloc.c", extra_cflags=["-inline noauto"]),
+            Object(Matching, "MSL_C.PPCEABI.bare.H/MSL_Common/errno.c"),
             Object(NonMatching, "MSL_C.PPCEABI.bare.H/MSL_Common/ansi_files.c"),
-            Object(NonMatching, "MSL_C.PPCEABI.bare.H/MSL_Common_Embedded/ansi_fp.c"),
+            Object(NonMatching, "MSL_C.PPCEABI.bare.H/MSL_Common_Embedded/ansi_fp.c", extra_cflags=["-inline noauto"]),
             Object(NonMatching, "MSL_C.PPCEABI.bare.H/MSL_Common/buffer_io.c"),
             Object(NonMatching, "MSL_C.PPCEABI.bare.H/MSL_Common/ctype.c"),
             Object(NonMatching, "MSL_C.PPCEABI.bare.H/MSL_Common/locale.c"),
@@ -452,6 +455,13 @@ config.libs = [
             Object(NonMatching, "Dolphin/DVD/dvdidutils.c"),
             Object(NonMatching, "Dolphin/DVD/dvdFatal.c"),
             Object(NonMatching, "Dolphin/DVD/fstload.c"),
+        ],
+    ),
+    DolphinLib(
+        "exi",
+        [
+            Object(NonMatching, "Dolphin/EXI/EXIBios.c"),
+            Object(NonMatching, "Dolphin/EXI/EXIUart.c"),
         ],
     ),
     # TODO: RELs

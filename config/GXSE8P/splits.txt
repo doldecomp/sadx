@@ -583,3 +583,14 @@ Dolphin/DVD/fstload.c:
 	.bss        start:0x800A4118 end:0x800A4188
 	.sdata      start:0x800C3F38 end:0x800C3F48
 	.sbss       start:0x800C4330 end:0x800C4340
+
+Dolphin/EXI/EXIBios.c:
+	.text       start:0x8002EC50 end:0x8003062C
+	.data       start:0x8007F518 end:0x8007F628
+	.bss        start:0x800A4188 end:0x800A4248
+	.sdata      start:0x800C3F48 end:0x800C3F50
+	.sbss       start:0x800C4340 end:0x800C4348
+
+Dolphin/EXI/EXIUart.c:
+	.text       start:0x8003062C end:0x80030C00
+	.sbss       start:0x800C4348 end:0x800C4358
